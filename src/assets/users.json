@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Super Admin",
+    "email": "admin@hireparalegalsdirect.com",
+    "password": "admin@123"
+  },
+  {
+    "name": "Jane Smith",
+    "email": "janesmith@outlook.com",
+    "password": "Jane@123"
+  },
+  {
+    "name": "Alice Johnson",
+    "email": "alice.johnson@hotmail.com",
+    "password": "Alice@123"
+  },
+  {
+    "name": "Bob Brown",
+    "email": "bobbrown@gmail.com",
+    "password": "Bob@123"
+  },
+  {
+    "name": "Charlie White",
+    "email": "charliewhite@outlook.com",
+    "password": "Charlie@123"
+  },
+  {
+    "name": "Emma Davis",
+    "email": "emma.davis@hotmail.com",
+    "password": "Emma@123"
+  },
+  {
+    "name": "Liam Wilson",
+    "email": "liamwilson@gmail.com",
+    "password": "Liam@123"
+  },
+  {
+    "name": "Olivia Thomas",
+    "email": "olivia.thomas@outlook.com",
+    "password": "Olivia@123"
+  },
+  {
+    "name": "Noah Taylor",
+    "email": "noahtaylor@hotmail.com",
+    "password": "Noah@123"
+  },
+  {
+    "name": "Sophia Martinez",
+    "email": "sophiamartinez@gmail.com",
+    "password": "Sophia@123"
+  }
+]

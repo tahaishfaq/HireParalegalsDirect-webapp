@@ -1,0 +1,254 @@
+<!-- <app-navbar></app-navbar> -->
+<!-- Hero Section -->
+<section class="hero py-md-5 py-3">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- Left Column -->
+      <div class="col-lg-6 text-content">
+
+        <div class="subtitle-container">
+          <p class="subtitle">Hire 5-Star Rated Paralegals Today</p>
+          <!-- <hr> -->
+        </div>
+
+        <h1>
+          <span class="highlight">Top Law Firms</span> Can't Find You.<br>
+          You Need <span class="text-bold-heading">A Voice.</span><br>
+          And <span class="text-bold-heading">A Partner.</span> 
+        </h1>
+        <p class="description">
+          Join the 1st and Only
+          Membership Portal in the Paralegal Community designed <br> for your Subject Matter
+          Expertise!
+        </p>
+
+        <div class="d-flex justify-content-start align-items-center w-100">
+          <button class="getStarted-btn mr-1" type="submit">Get Started <i class="ft-arrow-right"></i></button>
+          <button class="signIn-btn" type="submit">Sign In</button>
+
+        </div>
+
+        <div class="custom-box">
+          <div class="black-section">
+            <img src="/assets/img/white-check.svg" class="check-icon">
+            <img src="/assets/img/white-check.svg" class="check-icon">
+            <img src="/assets/img/white-check.svg" class="check-icon">
+            <img src="/assets/img/white-check.svg" class="check-icon">
+          </div>
+          <div class="content-section">
+            <p>VIP Membership on HPD Portal</p>
+            <p>Direct Hire so Paralegals can be their own Brand</p>
+            <p>Review from past Attorneys or Legal Clients</p>
+            <p>NALA Members Save $10 (with discount code)!</p>
+          </div>
+        </div>
+        
+   
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-lg-6 position-relative para">
+        <img src="/assets/hpd-home.png" class="hero-image" alt="Kevin Harrington">
+        <div class="info-card" style="padding: 20px;box-shadow: 6px 8px 9px 0px #75757540 inset;">
+          <form (ngSubmit)="searchParalegals()" class="search-box p-4">
+            <input type="text" [(ngModel)]="practice" name="practice" placeholder="Enter practice area">
+            <input type="text" [(ngModel)]="location" name="location" placeholder="Enter location">
+            <div class="d-flex justify-content-end align-items-center w-100">
+              <button class="search-btn justify-content-end" type="submit">Search <i class="ft-search"></i></button>
+            </div>
+            
+          </form>
+
+     
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section-1 sec-bg-blue  py-md-5 py-3">
+
+    <div class="column left">
+      <p class="description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eleifend dolor leo, id pretium nisl tempor nec. Fusce vel ex felis. Nulla vulputate finibus vulputate. Ut vel varius massa, et vulputate massa. Ut dui enim, pretium dapibus vulputate convallis, sodales eget diam. Nulla placerat dolor et mattis aliquam. Morbi condimentum.
+      </p>
+    </div>
+    <div class="column right">
+      <div class="cta-button">
+        Sign Up New Member <i class="ml-1 ft-arrow-up-right cta-icon"></i>
+      </div>
+    </div>
+
+</section>
+
+
+
+
+
+<section class="section-2 sec-bg-light py-md-5 py-3">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- Left Column -->
+      <div class="col-lg-6 text-content">
+        <h1 class="text-bold-heading">
+          Join Us Today And Create Your <br>
+          Premium Profile To Get Started!
+        </h1>
+
+        <!-- Points-->
+        <div class="custom-box mb-2">
+          <div class="black-section">
+            <img src="/assets/img/white-check.svg" class="check-icon">
+            <img src="/assets/img/white-check.svg" class="check-icon">
+            <img src="/assets/img/white-check.svg" class="check-icon">
+            <img src="/assets/img/white-check.svg" class="check-icon">
+          </div>
+          <div class="content-section">
+            <p>VIP Membership on HPD Portal</p>
+            <p>Direct Hire so Paralegals can be their own Brand</p>
+            <p>Review from past Attorneys or Legal Clients</p>
+            <p>NALA Members Save $10 (with discount code)!</p>
+          </div>
+        </div>
+
+        <p class="endorsement">
+          <strong>1st 1,000 Members to sign up qualify for Today’s Special Pricing</strong>
+        </p>
+
+        <h2 class="pricing-text">$49.99 / Year <span class="pricing-text-light">$359.99 / Year</span></h2>
+
+
+        <div class="d-flex">
+          <button class="getStarted-btn mr-2" (click)="openJoinModal()">Get Started</button>
+          <button class="signIn-btn">Join Hire Paralegals Direct On Facebook</button>
+        </div>
+      </div>
+
+      <div class="col-lg-6 position-relative right-column">
+        <img src="/assets/img/para-home.png">
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="section-3 sec-bg-dark py-md-5 py-3">
+  <div class="container">
+    <h1 class="heading-1">Hire Direct</h1>
+
+    <div class="feature">
+      <div class="feature-icon"></div>
+      <div class="feature-content">
+        <h2 style="font-size: 52px; color: #fff;">Unbiased Ratings of Paralegals</h2>
+        <ul>
+          <li>Our proprietary algorithm evaluates a Paralegal’s background with a simple 1-10 score.</li>
+          <li>This rating cannot be bought or manipulated so you get authentic information.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon"></div>
+      <div class="feature-content">
+        <h2 style="font-size: 52px; color: #fff;">Real Reviews of Attorneys</h2>
+        <ul>
+          <li >Get candid feedback from an attorney’s former clients.</li>
+          <li>Learn about things like communication style, professionalism, and personality.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon"></div>
+      <div class="feature-content">
+        <h2 style="font-size: 52px; color: #fff;">Ask a Legal Question for Free</h2>
+        <ul>
+          <li>Post an anonymous question for free to get answers from lawyers across the country.</li>
+          <li>Get answers within hours for quick legal help.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="how-it-works">
+
+    <div class="row">
+      <!-- Left Column (Text Content) -->
+      <div class="content-left">
+        <h2>Here’s How you get found</h2>
+
+        <div class="info-box">
+          <h3>Lawyers Will Search For Paralegals</h3>
+          <p>They will enter the type of Paralegal they need (practice area) and a location to start browsing profiles.</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Lawyers Will Read Reviews From Past Clients</h3>
+          <p>Lawyers get detailed profiles with all of the information they need to make a hiring decision, price, reviews, and an unbiased rating.</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Lawyers Will Book A Consultation Online</h3>
+          <p>If you're chosen, Lawyers will book a consultation easily through our site.</p>
+        </div>
+
+        <button class="primary-button">Get Started</button>
+      </div>
+
+      <!-- Right Column (Image) -->
+      <div class="image-right">
+        <img src="/assets/img/home-ipad.png" alt="Tablet UI" />
+      </div>
+    </div>
+
+</section>
+
+
+
+<section class="get-found">
+    <div class="how-it-works-row">
+      
+      <!-- Left Column (Single Image) -->
+      <div class="how-it-works-image">
+        <img src="/assets/img/multi-vector.png" alt="Businessman Pointing">
+      </div>
+
+      <!-- Right Column (Text Content) -->
+      <div class="how-it-works-text">
+        <h2>Here’s How You Get Found</h2>
+        <p class="how-it-works-description">
+          Take advantage of our search technology, detailed profiles, ratings, and reviews to evaluate and connect with Paralegals.
+        </p>
+
+        <div class="how-it-works-step">
+          <h3>Search For Paralegals In Your Area</h3>
+          <p>Enter the type of Paralegal you need (practice area) and your location to start browsing profiles.</p>
+        </div>
+
+        <div class="how-it-works-step">
+          <h3>Read Reviews From Past Clients</h3>
+          <p>Get detailed profiles with all of the information you need to make a hiring decision, including price, reviews, and an unbiased rating.</p>
+        </div>
+
+        <div class="how-it-works-step">
+          <h3>Book A Consultation Online</h3>
+          <p>Contact a Paralegal or book a consultation easily through our site so you can get the help you need without the stress.</p>
+        </div>
+
+        <button class="how-it-works-button">Book Now</button>
+      </div>
+
+    </div>
+</section>
+
+
+
+<!-- <app-footer></app-footer> -->

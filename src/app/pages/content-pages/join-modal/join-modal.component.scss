@@ -1,0 +1,20 @@
+.modal-content {
+    height: 600px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-body {
+    flex: 1;
+    overflow-y: auto; /* Enables vertical scroll */
+    padding: 15px;
+}
+ .modal-header {
+    border-radius: 0;
+    background-color: #1792C8 !important;
+}
+.modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: white !important;
+}

@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "practice": ["Family Law", "Criminal Law", "Child Support"],
+    "location": "California",
+    "image": "/assets/img/portrait1.png",
+    "experience": "10 years",
+    "description": "Experienced in handling complex family law cases including divorce and child custody.",
+    "rating": 4.8
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "practice": ["Criminal Law", "Corporate Law"],
+    "location": "Texas",
+    "image": "/assets/img/portrait2.png",
+    "experience": "8 years",
+    "description": "Expert in defending clients in criminal cases and ensuring fair legal representation.",
+    "rating": 4.5
+  },
+  {
+    "id": 3,
+    "name": "Michael Johnson",
+    "practice": ["Corporate Law", "Real Estate Law"],
+    "location": "New York",
+    "image": "/assets/img/portrait3.png",
+    "experience": "15 years",
+    "description": "Specialized in corporate law, mergers, and acquisitions for multinational companies.",
+    "rating": 4.9
+  },
+  {
+    "id": 4,
+    "name": "Emily Davis",
+    "practice": ["Immigration Law", "Family Law"],
+    "location": "Florida",
+    "image": "/assets/img/portrait4.png",
+    "experience": "12 years",
+    "description": "Providing assistance in visa applications, green cards, and citizenship processes.",
+    "rating": 4.7
+  },
+  {
+    "id": 5,
+    "name": "Daniel Martinez",
+    "practice": ["Real Estate Law", "Bankruptcy Law"],
+    "location": "Illinois",
+    "image": "/assets/img/portrait4.png",
+    "experience": "7 years",
+    "description": "Skilled in handling property disputes, transactions, and contract negotiations.",
+    "rating": 4.3
+  },
+  {
+    "id": 6,
+    "name": "Sarah Brown",
+    "practice": ["Intellectual Property Law", "Corporate Law", "Child Abuse"],
+    "location": "Washington",
+    "image": "/assets/img/portrait1.png",
+    "experience": "14 years",
+    "description": "Expert in trademark, patent, and copyright law, protecting clients' intellectual property.",
+    "rating": 4.9
+  },
+  {
+    "id": 7,
+    "name": "David Wilson",
+    "practice": ["Employment Law", "Personal Injury Law"],
+    "location": "Georgia",
+    "image": "/assets/img/portrait3.png",
+    "experience": "6 years",
+    "description": "Providing legal guidance on workplace disputes, wrongful termination, and labor rights.",
+    "rating": 4.2
+  },
+  {
+    "id": 8,
+    "name": "Laura White",
+    "practice": ["Personal Injury Law", "Family Law"],
+    "location": "Ohio",
+    "image": "/assets/img/portrait2.png",
+    "experience": "9 years",
+    "description": "Dedicated to representing clients in personal injury claims and securing fair compensation.",
+    "rating": 4.6
+  },
+  {
+    "id": 9,
+    "name": "James Taylor",
+    "practice": ["Bankruptcy Law", "Criminal Law", "Child Abuse"],
+    "location": "Michigan",
+    "image": "/assets/img/portrait3.png",
+    "experience": "11 years",
+    "description": "Helping individuals and businesses navigate bankruptcy proceedings and financial restructuring.",
+    "rating": 4.4
+  },
+  {
+    "id": 10,
+    "name": "Sophia Harris",
+    "practice": ["Environmental Law", "Corporate Law", "Child Abuse"],
+    "location": "Colorado",
+    "image": "/assets/img/Ellipse1.png",
+    "experience": "13 years",
+    "description": "Advocating for environmental regulations and sustainability in legal frameworks.",
+    "rating": 4.8
+  },
+  {
+    "id": 11,
+    "name": "Ethan Carter",
+    "practice": ["Tax Law", "Corporate Law"],
+    "location": "Arizona",
+    "image": "/assets/img/portrait1.png",
+    "experience": "10 years",
+    "description": "Specialized in tax law, helping businesses comply with IRS regulations and corporate taxation policies.",
+    "rating": 4.6
+  },
+  {
+    "id": 12,
+    "name": "Olivia Walker",
+    "practice": ["Family Law", "Immigration Law"],
+    "location": "Nevada",
+    "image": "/assets/img/portrait2.png",
+    "experience": "8 years",
+    "description": "Assisting families in adoption, custody disputes, and immigration-related legal matters.",
+    "rating": 4.5
+  },
+  {
+    "id": 13,
+    "name": "Liam Johnson",
+    "practice": ["Criminal Law", "Personal Injury Law"],
+    "location": "Alabama",
+    "image": "/assets/img/portrait3.png",
+    "experience": "12 years",
+    "description": "Defending clients in criminal cases and representing victims in personal injury claims.",
+    "rating": 4.7
+  },
+  {
+    "id": 14,
+    "name": "Emma Roberts",
+    "practice": ["Real Estate Law", "Bankruptcy Law"],
+    "location": "North Carolina",
+    "image": "/assets/img/portrait4.png",
+    "experience": "9 years",
+    "description": "Guiding clients through property transactions, foreclosures, and financial restructuring.",
+    "rating": 4.3
+  },
+  {
+    "id": 15,
+    "name": "Noah Martinez",
+    "practice": ["Environmental Law", "Intellectual Property Law"],
+    "location": "Oregon",
+    "image": "/assets/img/portrait1.png",
+    "experience": "14 years",
+    "description": "Protecting clients’ innovations while advocating for environmental compliance in corporate settings.",
+    "rating": 4.9
+  },
+  {
+    "id": 16,
+    "name": "Ava Thomas",
+    "practice": ["Employment Law", "Civil Rights Law"],
+    "location": "South Carolina",
+    "image": "/assets/img/portrait3.png",
+    "experience": "7 years",
+    "description": "Fighting for workplace fairness and employee rights against discrimination and wrongful termination.",
+    "rating": 4.2
+  },
+  {
+    "id": 17,
+    "name": "William Clark",
+    "practice": ["Criminal Law", "Corporate Law"],
+    "location": "Kentucky",
+    "image": "/assets/img/portrait2.png",
+    "experience": "11 years",
+    "description": "Representing corporations in compliance matters while defending individuals in criminal cases.",
+    "rating": 4.6
+  },
+  {
+    "id": 18,
+    "name": "Sophia Hall",
+    "practice": ["Intellectual Property Law", "Corporate Law"],
+    "location": "Mississippi",
+    "image": "/assets/img/portrait4.png",
+    "experience": "13 years",
+    "description": "Helping businesses secure patents and copyrights to protect their intellectual assets.",
+    "rating": 4.8
+  },
+  {
+    "id": 19,
+    "name": "Benjamin Adams",
+    "practice": ["Bankruptcy Law", "Tax Law"],
+    "location": "Iowa",
+    "image": "/assets/img/portrait3.png",
+    "experience": "10 years",
+    "description": "Providing debt relief strategies and tax planning solutions for individuals and businesses.",
+    "rating": 4.5
+  },
+  {
+    "id": 20,
+    "name": "Mia Nelson",
+    "practice": ["Civil Rights Law", "Family Law"],
+    "location": "Tennessee",
+    "image": "/assets/img/portrait2.png",
+    "experience": "9 years",
+    "description": "Dedicated to advocating for individuals facing discrimination and family legal disputes.",
+    "rating": 4.7
+  },
+  {
+    "id": 21,
+    "name": "Lucas Rodriguez",
+    "practice": ["Real Estate Law", "Environmental Law"],
+    "location": "Minnesota",
+    "image": "/assets/img/portrait1.png",
+    "experience": "12 years",
+    "description": "Helping clients navigate property laws while ensuring environmental compliance.",
+    "rating": 4.4
+  },
+  {
+    "id": 22,
+    "name": "Isabella Wright",
+    "practice": ["Employment Law", "Civil Rights Law"],
+    "location": "New Mexico",
+    "image": "/assets/img/portrait2.png",
+    "experience": "6 years",
+    "description": "Protecting workers' rights against unfair labor practices and discrimination.",
+    "rating": 4.3
+  },
+  {
+    "id": 23,
+    "name": "Mason Hernandez",
+    "practice": ["Corporate Law", "Tax Law"],
+    "location": "Louisiana",
+    "image": "/assets/img/portrait3.png",
+    "experience": "15 years",
+    "description": "Providing corporate tax planning and business regulatory compliance services.",
+    "rating": 4.9
+  },
+  {
+    "id": 24,
+    "name": "Charlotte Green",
+    "practice": ["Criminal Law", "Bankruptcy Law"],
+    "location": "Wisconsin",
+    "image": "/assets/img/portrait4.png",
+    "experience": "8 years",
+    "description": "Defending clients against criminal charges while helping businesses with financial restructuring.",
+    "rating": 4.5
+  },
+  {
+    "id": 25,
+    "name": "Elijah Scott",
+    "practice": ["Intellectual Property Law", "Corporate Law"],
+    "location": "Nebraska",
+    "image": "/assets/img/portrait1.png",
+    "experience": "13 years",
+    "description": "Specializing in patent and trademark law for innovative businesses and startups.",
+    "rating": 4.7
+  },
+  {
+    "id": 26,
+    "name": "Amelia Baker",
+    "practice": ["Family Law", "Immigration Law"],
+    "location": "Maine",
+    "image": "/assets/img/portrait2.png",
+    "experience": "10 years",
+    "description": "Providing legal aid for families in custody battles and immigration processes.",
+    "rating": 4.6
+  },
+  {
+    "id": 27,
+    "name": "James Anderson",
+    "practice": ["Real Estate Law", "Corporate Law"],
+    "location": "Idaho",
+    "image": "/assets/img/portrait3.png",
+    "experience": "12 years",
+    "description": "Handling complex property disputes and corporate real estate transactions.",
+    "rating": 4.8
+  },
+  {
+    "id": 28,
+    "name": "Harper King",
+    "practice": ["Environmental Law", "Civil Rights Law"],
+    "location": "Arkansas",
+    "image": "/assets/img/portrait4.png",
+    "experience": "11 years",
+    "description": "Advocating for environmental justice and civil rights protections in legal matters.",
+    "rating": 4.5
+  },
+  {
+    "id": 29,
+    "name": "Alexander Young",
+    "practice": ["Tax Law", "Bankruptcy Law"],
+    "location": "South Dakota",
+    "image": "/assets/img/portrait1.png",
+    "experience": "9 years",
+    "description": "Helping individuals and businesses resolve tax disputes and manage debt relief solutions.",
+    "rating": 4.4
+  },
+  {
+    "id": 30,
+    "name": "Evelyn Cooper",
+    "practice": ["Personal Injury Law", "Family Law"],
+    "location": "North Dakota",
+    "image": "/assets/img/portrait2.png",
+    "experience": "7 years",
+    "description": "Committed to securing justice for injury victims and resolving family legal matters.",
+    "rating": 4.3
+  }
+]

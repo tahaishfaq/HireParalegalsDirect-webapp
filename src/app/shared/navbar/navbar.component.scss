@@ -1,0 +1,83 @@
+.large-dropdown {
+    width: 60vw; /* 60% width of screen */
+    left: 20vw;  /* Centered dropdown */
+    right: auto;
+  }
+
+  .dropdown-menu {
+    padding: 0px;
+    border-radius: 5px;
+    margin-top: -0.5rem;
+    margin-left: -1.3rem;
+  }
+
+  .table td {
+    padding: 10px;
+    font-weight: 500;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 5%;  // Ensure spacing inside the container
+  }
+
+  /* Make dropdown full width and 70% screen height */
+.custom-dropdown {
+  min-width: 100vw;
+  height: 60vh; /* Covers 70% of viewport height */
+  left: 0 !important;
+  right: 0 !important;
+  overflow-y: auto;
+}
+.custom-dropdown-practice {
+  min-width: 100vw;
+  height: 50vh; /* Covers 70% of viewport height */
+  left: 0 !important;
+  right: 0 !important;
+  overflow-y: auto;
+}
+
+/* Hover effect */
+// .nav-item.dropdown .dropdown-menu {
+//   display: none;
+// }
+
+// .nav-item.dropdown:hover .dropdown-menu {
+//   display: block;
+// }
+
+/* Fix spacing issues */
+.border-end {
+  border-right: 1px solid #ddd !important;
+}
+
+.list-unstyled li a {
+  text-decoration: none;
+  color: #1792C8;
+}
+
+.list-unstyled li a:hover {
+  text-decoration: underline;
+}
+.logged-in-user-btn:hover .logged-in-user {
+  color: #1792C8; /* Change to desired hover color */
+  transition: color 0.3s ease-in-out;
+}
+/* Change text color on hover */
+.dropdown-animated {
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-animated:hover {
+  background-color: #1792C8; /* Change to your preferred color */
+  color: #ffffff; /* Text color on hover */
+}
+
+
+
+/* Button hover effect */
+.logged-in-user-btn:hover .logged-in-user {
+  color: #1792C8; /* Change to desired hover color */
+  transition: color 0.3s ease-in-out;
+}

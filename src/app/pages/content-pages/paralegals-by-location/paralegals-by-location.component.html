@@ -1,0 +1,246 @@
+<!-- <app-navbar></app-navbar> -->
+<section class="banner">
+    <h1>{{ stateName }} Paralegals</h1>
+  </section>
+<section class="section1">
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <div class="input-wrapper">
+          <input class="input-sec form-control" type="text" placeholder="Search Paralegals in {{ stateName }}?">
+          <svg class="searchicon" width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16.6 18L10.3 11.7C9.8 12.1 9.225 12.4167 8.575 12.65C7.925 12.8833 7.23333 13 6.5 13C4.68333 13 3.14583 12.3708 1.8875 11.1125C0.629167 9.85417 0 8.31667 0 6.5C0 4.68333 0.629167 3.14583 1.8875 1.8875C3.14583 0.629167 4.68333 0 6.5 0C8.31667 0 9.85417 0.629167 11.1125 1.8875C12.3708 3.14583 13 4.68333 13 6.5C13 7.23333 12.8833 7.925 12.65 8.575C12.4167 9.225 12.1 9.8 11.7 10.3L18 16.6L16.6 18ZM6.5 11C7.75 11 8.8125 10.5625 9.6875 9.6875C10.5625 8.8125 11 7.75 11 6.5C11 5.25 10.5625 4.1875 9.6875 3.3125C8.8125 2.4375 7.75 2 6.5 2C5.25 2 4.1875 2.4375 3.3125 3.3125C2.4375 4.1875 2 5.25 2 6.5C2 7.75 2.4375 8.8125 3.3125 9.6875C4.1875 10.5625 5.25 11 6.5 11Z"
+              fill="#1D1B20" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="input-wrapper">
+          <input class="input-sec form-control" type="text" placeholder="{{ stateName }}">
+          <svg class="locationicon" width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M7 20C6.76667 20 6.56667 19.9333 6.4 19.8C6.23333 19.6667 6.10833 19.4917 6.025 19.275C5.70833 18.3417 5.30833 17.4667 4.825 16.65C4.35833 15.8333 3.7 14.875 2.85 13.775C2 12.675 1.30833 11.625 0.775 10.625C0.258333 9.625 0 8.41667 0 7C0 5.05 0.675 3.4 2.025 2.05C3.39167 0.683333 5.05 0 7 0C8.95 0 10.6 0.683333 11.95 2.05C13.3167 3.4 14 5.05 14 7C14 8.51667 13.7083 9.78333 13.125 10.8C12.5583 11.8 11.9 12.7917 11.15 13.775C10.25 14.975 9.56667 15.975 9.1 16.775C8.65 17.5583 8.275 18.3917 7.975 19.275C7.89167 19.5083 7.75833 19.6917 7.575 19.825C7.40833 19.9417 7.21667 20 7 20ZM7 9.5C7.7 9.5 8.29167 9.25833 8.775 8.775C9.25833 8.29167 9.5 7.7 9.5 7C9.5 6.3 9.25833 5.70833 8.775 5.225C8.29167 4.74167 7.7 4.5 7 4.5C6.3 4.5 5.70833 4.74167 5.225 5.225C4.74167 5.70833 4.5 6.3 4.5 7C4.5 7.7 4.74167 8.29167 5.225 8.775C5.70833 9.25833 6.3 9.5 7 9.5Z"
+              fill="#1D1B20" />
+          </svg>
+
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="d-flex h-100 align-items-stretch">
+          <button class="btn btn-primary w-100">Search</button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <h1 class="fw-bold text-center">Find the best paralegals in {{ stateName }} by practice area</h1>
+        <p class="text-center">{{ stateName }} currently has more than {{ paralegalCount }} paralegals active on Hire Direct Paralegal. </p>
+    
+        <div class="d-flex justify-content-center gap-3 mt-3">
+            <button class="btn btn-outline-dark m-2">Practice Areas</button>
+            <button class="btn btn-outline-dark m-2" (click)="scrollTotopCitiesSection('topCities')">Top Cities</button>
+            <button class="btn btn-outline-dark m-2" (click)="scrollToallCitiesSection('allCities')">All Cities</button>
+            <button class="btn btn-outline-dark m-2" (click)="scrollToallCountiesSection('allCounties')">Counties</button>
+        </div>
+        
+    
+        <h3 class="mt-4">Practice Areas in {{ stateName }}</h3>
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="list-unstyled">
+                    <li class="m-1"><a href="#">Bankruptcy and Debt</a></li>
+                    <li class="m-1"><a href="#">Criminal Defense</a></li>
+                    <li class="m-1"><a href="#">Employment and Labor</a></li>
+                    <li class="m-1"><a href="#">Real Estate</a></li>
+                    <li class="m-1"><a href="#">Family Law</a></li>
+                    <li class="m-1"><a href="#">Intellectual Property</a></li>
+                    <li class="m-1"><a href="#">Personal Injury</a></li>
+                    <li class="m-1"><a href="#">Immigration</a></li>
+                    <li class="m-1"><a href="#">Tax Law</a></li>
+                    <li class="m-1"><a href="#">Medical Malpractice</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul class="list-unstyled">
+                    <li class="m-1"><a href="#">Business Law</a></li>
+                    <li class="m-1"><a href="#">Elder Law</a></li>
+                    <li class="m-1"><a href="#">Education Law</a></li>
+                    <li class="m-1"><a href="#">Civil Rights</a></li>
+                    <li class="m-1"><a href="#">Workers' Compensation</a></li>
+                    <li class="m-1"><a href="#">Consumer Protection</a></li>
+                    <li class="m-1"><a href="#">Entertainment Law</a></li>
+                    <li class="m-1"><a href="#">Sports Law</a></li>
+                    <li class="m-1"><a href="#">Admiralty and Maritime</a></li>
+                    <li class="m-1"><a href="#">Constitutional Law</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul class="list-unstyled">
+                    <li class="m-1"><a href="#">Social Security Disability</a></li>
+                    <li class="m-1"><a href="#">Insurance Law</a></li>
+                    <li class="m-1"><a href="#">Civil Litigation</a></li>
+                    <li class="m-1"><a href="#">Antitrust Law</a></li>
+                    <li class="m-1"><a href="#">Securities Law</a></li>
+                    <li class="m-1"><a href="#">Environmental Law</a></li>
+                    <li class="m-1"><a href="#">Land Use and Zoning</a></li>
+                    <li class="m-1"><a href="#">Military Law</a></li>
+                    <li class="m-1"><a href="#">Juvenile Law</a></li>
+                    <li class="m-1"><a href="#">Health Care Law</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul class="list-unstyled">
+                    <li class="m-1"><a href="#">Privacy Law</a></li>
+                    <li class="m-1"><a href="#">Technology Law</a></li>
+                    <li class="m-1"><a href="#">Foreclosure Defense</a></li>
+                    <li class="m-1"><a href="#">Government Law</a></li>
+                    <li class="m-1"><a href="#">Franchise Law</a></li>
+                    <li class="m-1"><a href="#">Transportation Law</a></li>
+                    <li class="m-1"><a href="#">Nursing Home Abuse</a></li>
+                    <li class="m-1"><a href="#">White Collar Crime</a></li>
+                    <li class="m-1"><a href="#">Native American Law</a></li>
+                    <li class="m-1"><a href="#">Alternative Dispute Resolution</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="mt-4" #topCities>Top Cities in {{ stateName }}</h3>
+<div class="row">
+    <div class="col-md-3">
+        <ul class="list-unstyled">
+            <li class="m-1"><a href="#">Anchorage</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+      <ul class="list-unstyled">
+         
+          <li class="m-1"><a href="#">Fairbanks</a></li>
+
+      </ul>
+  </div>
+  <div class="col-md-3">
+    <ul class="list-unstyled">
+
+        <li class="m-1"><a href="#">Juneau</a></li>
+
+    </ul>
+</div>
+<div class="col-md-3">
+  <ul class="list-unstyled">
+
+      <li class="m-1"><a href="#">Sitka</a></li>
+
+  </ul>
+</div>
+</div>
+
+<h3 class="mt-4" #allCities>All Cities in {{ stateName }}</h3>
+<div class="row">
+    <div class="col-md-3">
+        <ul class="list-unstyled">
+            <li class="m-1"><a href="#">Anchorage</a></li>
+            <li class="m-1"><a href="#">Fairbanks</a></li>
+            <li class="m-1"><a href="#">Juneau</a></li>
+            <li class="m-1"><a href="#">Sitka</a></li>
+            <li class="m-1"><a href="#">Ketchikan</a></li>
+            <li class="m-1"><a href="#">Wasilla</a></li>
+            <li class="m-1"><a href="#">Kenai</a></li>
+            <li class="m-1"><a href="#">Kodiak</a></li>
+            <li class="m-1"><a href="#">Bethel</a></li>
+            <li class="m-1"><a href="#">Palmer</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <ul class="list-unstyled">
+            <li class="m-1"><a href="#">Homer</a></li>
+            <li class="m-1"><a href="#">Nome</a></li>
+            <li class="m-1"><a href="#">Dillingham</a></li>
+            <li class="m-1"><a href="#">Seward</a></li>
+            <li class="m-1"><a href="#">Valdez</a></li>
+            <li class="m-1"><a href="#">Kotzebue</a></li>
+            <li class="m-1"><a href="#">Wrangell</a></li>
+            <li class="m-1"><a href="#">Petersburg</a></li>
+            <li class="m-1"><a href="#">Barrow</a></li>
+            <li class="m-1"><a href="#">Unalaska</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+      <ul class="list-unstyled">
+          <li class="m-1"><a href="#">Anchorage</a></li>
+          <li class="m-1"><a href="#">Fairbanks</a></li>
+          <li class="m-1"><a href="#">Juneau</a></li>
+          <li class="m-1"><a href="#">Sitka</a></li>
+          <li class="m-1"><a href="#">Ketchikan</a></li>
+          <li class="m-1"><a href="#">Wasilla</a></li>
+          <li class="m-1"><a href="#">Kenai</a></li>
+          <li class="m-1"><a href="#">Kodiak</a></li>
+          <li class="m-1"><a href="#">Bethel</a></li>
+          <li class="m-1"><a href="#">Palmer</a></li>
+      </ul>
+  </div>
+  <div class="col-md-3">
+    <ul class="list-unstyled">
+        <li class="m-1"><a href="#">Homer</a></li>
+        <li class="m-1"><a href="#">Nome</a></li>
+        <li class="m-1"><a href="#">Dillingham</a></li>
+        <li class="m-1"><a href="#">Seward</a></li>
+        <li class="m-1"><a href="#">Valdez</a></li>
+        <li class="m-1"><a href="#">Kotzebue</a></li>
+        <li class="m-1"><a href="#">Wrangell</a></li>
+        <li class="m-1"><a href="#">Petersburg</a></li>
+        <li class="m-1"><a href="#">Barrow</a></li>
+        <li class="m-1"><a href="#">Unalaska</a></li>
+    </ul>
+</div>
+</div>
+
+<h3 class="mt-4" #allCounties>All Counties in {{ stateName }}</h3>
+<div class="row">
+    <div class="col-md-3">
+        <ul class="list-unstyled">
+            <li class="m-1"><a href="#">Aleutians East Borough</a></li>
+            <li class="m-1"><a href="#">Anchorage Municipality</a></li>
+            <li class="m-1"><a href="#">Bristol Bay Borough</a></li>
+            <li class="m-1"><a href="#">Denali Borough</a></li>
+            <li class="m-1"><a href="#">Fairbanks North Star Borough</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <ul class="list-unstyled">
+            <li class="m-1"><a href="#">Haines Borough</a></li>
+            <li class="m-1"><a href="#">Juneau City and Borough</a></li>
+            <li class="m-1"><a href="#">Kenai Peninsula Borough</a></li>
+            <li class="m-1"><a href="#">Ketchikan Gateway Borough</a></li>
+            <li class="m-1"><a href="#">Kodiak Island Borough</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <ul class="list-unstyled">
+            <li class="m-1"><a href="#">Lake and Peninsula Borough</a></li>
+            <li class="m-1"><a href="#">Matanuska-Susitna Borough</a></li>
+            <li class="m-1"><a href="#">Nome Census Area</a></li>
+            <li class="m-1"><a href="#">North Slope Borough</a></li>
+            <li class="m-1"><a href="#">Northwest Arctic Borough</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <ul class="list-unstyled">
+            <li class="m-1"><a href="#">Petersburg Borough</a></li>
+            <li class="m-1"><a href="#">Prince of Wales-Hyder Census Area</a></li>
+            <li class="m-1"><a href="#">Sitka City and Borough</a></li>
+            <li class="m-1"><a href="#">Skagway Municipality</a></li>
+            <li class="m-1"><a href="#">Yakutat City and Borough</a></li>
+        </ul>
+    </div>
+</div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- <app-footer></app-footer> -->
