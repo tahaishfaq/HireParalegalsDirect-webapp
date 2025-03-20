@@ -670,6 +670,8 @@
   border-radius: 30px;
 }
 .text-bold-heading{
+
+  font-size: 52px;
   font-weight: 700 !important;
 }
 /* Play Icon */
@@ -703,6 +705,7 @@
 
   .text-content {
     opacity: 0;
+    align-self: end;
   transform: translateX(-50px);
   animation: slideIn 2s ease-out forwards;
   @keyframes slideIn {
@@ -724,8 +727,7 @@
     }
 
     h1 {
-      font-size: 2.2rem;
-      // font-weight: bold;
+      font-size: 52px;
       line-height: 1.4;
 
       .highlight {
@@ -789,7 +791,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    // align-items: flex-end;
+    align-items: flex-end;
 
     .hero-image {
       // max-width: 100%;
@@ -933,7 +935,7 @@
   .hero-image {
     width: 100% !important;
     right: 2em !important;
-    bottom: 16em !important;
+    bottom: 4em !important;
   }
 
   .svg1, .svg2{
@@ -958,7 +960,7 @@
     right: 21.5em !important;
   }
   .para{
-    margin-top: -10rem !important;
+    // margin-top: -10rem !important;
   }
   .custom-card2 {
     right: 8.4em !important;
@@ -980,12 +982,12 @@
     right: 14.4em !important;
   }
   .para{
-    margin-top: -10rem !important;
+    // margin-top: -10rem !important;
   }
   .hero-image {
     width: 100% !important;
     right: 0.5em !important;
-    bottom: 6em !important;
+    bottom: 4em !important;
   }
 }
 
