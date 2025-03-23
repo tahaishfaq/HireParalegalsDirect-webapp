@@ -25,6 +25,7 @@ import { ParalegalsByLocationComponent } from './paralegals-by-location/paralega
 import { ParalegalsByPracticeComponent } from './paralegals-by-practice/paralegals-by-practice.component';
 import { ParalegalsProfileComponent } from './paralegals-profile/paralegals-profile.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -62,7 +63,8 @@ export function createTranslateLoader(http: HttpClient) {
     JoinModalComponent,
     ParalegalsByLocationComponent,
     ParalegalsByPracticeComponent,
-    ParalegalsProfileComponent
+    ParalegalsProfileComponent,
+    VerifyOtpComponent
   ]
 })
 export class ContentPagesModule { }

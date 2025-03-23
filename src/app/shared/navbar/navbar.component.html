@@ -1,16 +1,19 @@
 <!-- Bootstrap Navbar -->
 <nav class="navbar navbar-expand-lg bg-light py-3" style="background-color: #f5f5f5 !important;">
-  <div class="container">
+  <!-- <div class="container"> -->
     
+
+        <!-- Navbar Toggler (for mobile) -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
     <!-- Logo (Left-aligned) -->
     <a class="navbar-brand" href="#">
       <img src="/assets/img/logos/nav-logo.png" alt="Hire Paralegals Direct" height="50">
     </a>
 
-    <!-- Navbar Toggler (for mobile) -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
 
     <!-- Navbar Items (Center-aligned) -->
     <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav">
@@ -19,7 +22,7 @@
           <a class="nav-link active text-primary" href="#">Home</a>
         </li>
         <!-- Paralegal by Location Dropdown -->
-        <li class="nav-item dropdown position-static" ngbDropdown>
+        <li class="nav-item dropdown position-static" ngbDropdown #dropdown="ngbDropdown">
           <a class="nav-link dropdown-toggle" ngbDropdownToggle>
             Paralegals By Location
           </a>
@@ -52,14 +55,14 @@
                 <div class="row">
                     <div class="col-md-3">
                         <ul class="list-unstyled">
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Alaska', count: '790' }">Alaska</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Arizona', count: '390' }">Arizona</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Alabama', count: '450' }">Alabama</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Arkansas', count: '320' }">Arkansas</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'California', count: '1200' }">California</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Colorado', count: '550' }">Colorado</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Connecticut', count: '290' }">Connecticut</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Delaware', count: '180' }">Delaware</a></li>
+                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Alaska', count: '790' }">Alaska</a></li>
+                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Arizona', count: '390' }">Arizona</a></li>
+                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Alabama', count: '450' }">Alabama</a></li>
+                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Arkansas', count: '320' }">Arkansas</a></li>
+                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'California', count: '1200' }">California</a></li>
+                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Colorado', count: '550' }">Colorado</a></li>
+                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Connecticut', count: '290' }">Connecticut</a></li>
+                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Delaware', count: '180' }">Delaware</a></li>
                             <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Dist. of Columbia', count: '200' }">Dist. of Columbia</a></li>
                             <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Florida', count: '980' }">Florida</a></li>
                             <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Georgia', count: '750' }">Georgia</a></li>
@@ -180,43 +183,44 @@
         </li>
         
       </ul>
+     
     </div>
 
     <!-- Buttons (Right-aligned) -->
-    <div class="d-flex">
+     <div class="d-flex">
 
-      <ng-container *ngIf="isLoggedIn; else loggedOutButtons">
-        <!-- Logged-in icons -->
-        <ng-template #loggedInIcons>
-          <i class="ft-search p-3"></i>
-          <i class="ft-message-circle p-3"></i>
-          <i class="ft-bell p-3"></i>
-          <div class="dropdown" ngbDropdown style="margin-top: -0.3rem;" placement="bottom-left">
-            <button class="btn dropdown-toggle p-3 logged-in-user-btn" ngbDropdownToggle>
-                <i class="ft-user logged-in-user"></i> 
-                <span class="p-1 logged-in-user">{{ loggedInUserName }}</span>
-                <span class="caret"></span> <!-- Caret Indicator -->
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
-                <li><a class="dropdown-item dropdown-animated" href="#">Profile</a></li>
-                <li><hr class="dropdown-divider"></li> <!-- Divider -->
-                <li><a class="dropdown-item dropdown-animated" (click)="logout()">Logout</a></li>
-            </ul>
-        </div>
-        
+        <ng-container *ngIf="isLoggedIn; else loggedOutButtons">
+          <!-- Logged-in icons -->
+          <ng-template #loggedInIcons>
+            <i class="ft-search p-3"></i>
+            <i class="ft-message-circle p-3"></i>
+            <i class="ft-bell p-3"></i>
+            <div class="dropdown" ngbDropdown style="margin-top: -0.3rem;" placement="bottom-left">
+              <button class="btn dropdown-toggle p-3 logged-in-user-btn" ngbDropdownToggle>
+                  <i class="ft-user logged-in-user"></i> 
+                  <span class="p-1 logged-in-user">{{ loggedInUserName }}</span>
+                  <span class="caret"></span> <!-- Caret Indicator -->
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                  <li><a class="dropdown-item dropdown-animated" href="#">Profile</a></li>
+                  <li><hr class="dropdown-divider"></li> <!-- Divider -->
+                  <li><a class="dropdown-item dropdown-animated" (click)="logout()">Logout</a></li>
+              </ul>
+          </div>
+          
+          </ng-template>
+          <ng-container *ngTemplateOutlet="loggedInIcons"></ng-container>
+        </ng-container>
+      
+        <ng-template #loggedOutButtons>
+         
+          <button class="btn btn-primary m-3" [routerLink]="'/pages/register'">Join Beta</button>
+          <button class="btn btn-outline-primary m-3" (click)="openLoginModal()">Sign In</button>
         </ng-template>
-        <ng-container *ngTemplateOutlet="loggedInIcons"></ng-container>
-      </ng-container>
-    
-      <ng-template #loggedOutButtons>
-       
-        <button class="btn btn-primary m-3" (click)="openJoinModal()">Join Beta</button>
-        <button class="btn btn-outline-primary m-3" (click)="openLoginModal()">Sign In</button>
-      </ng-template>
-    </div>
+      </div>
     
 
-  </div>
+  <!-- </div> -->
 </nav>
 
 

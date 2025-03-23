@@ -13,6 +13,7 @@ import { LawyerListingComponent } from './lawyer-listing/lawyer-listing.componen
 import { ParalegalsByLocationComponent } from './paralegals-by-location/paralegals-by-location.component';
 import { ParalegalsByPracticeComponent } from './paralegals-by-practice/paralegals-by-practice.component';
 import { ParalegalsProfileComponent } from './paralegals-profile/paralegals-profile.component';
+import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 
 
 const routes: Routes = [
@@ -67,6 +68,13 @@ const routes: Routes = [
         component: RegisterPageComponent,
         data: {
           title: 'Register Page'
+        }
+      },
+      {
+        path: 'otp',
+        component: VerifyOtpComponent,
+        data: {
+          title: 'otp'
         }
       },
       {

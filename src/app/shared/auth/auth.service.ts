@@ -8,83 +8,28 @@ import { HttpClient } from '@angular/common/http';
 import { distinctUntilChanged, map, shareReplay, tap } from 'rxjs/operators';
 import { environment } from 'environments/environment';
 export interface AuthState {
-  userId?: string | null | undefined;
-  access_token?: string | null | undefined;
-  token_type?: string | null | undefined;
-  expires_at?: string | null | undefined;
-  name?: string | null | undefined;
-  role?: string | null | undefined;
-  shopid?: string | null | undefined;
-  actualshop?: string | null | undefined;
-  usergroupid?: string | null | undefined;
-  shiftid?: string | null | undefined;
-  CompanyID?: string | null | undefined;
-  // admin, manager, economist, user
-}
-export interface Credentials {
-  username?: string | null | undefined;
-  password?: string | null | undefined;
-  remember?: boolean | null | undefined;
-}
-export interface User {
-  id?: any;
-  name: any;
-  email: any;
-  role: any;
-  userId: any;
-  photo: any | null;
-
-  user_shift: {
-    id: any;
-    user_id: any;
-    shift_id: any;
-    shift: {
-      id: any;
-      name: any;
-    };
-  } | null;
-}
-export interface LoginResponse {
-  status: any;
-  userId?: string | null | undefined;
-  access_token?: string | null | undefined;
-  token_type?: string | null | undefined;
-  name?: string | null | undefined;
-  expires_at?: string | null | undefined;
-  role?: string | null | undefined;
-  usergroupid?: string | null | undefined;
-  shopid?: string | null | undefined; // admin; manager; economist; user
-  user?:User
+  userId?: string | null;
+  access_token?: string | null;
+  name?: string | null;
+  role?: string | null;
 }
 
 export const initialState: AuthState = {
   userId: null,
   access_token: null,
-  token_type: null,
-  expires_at: null,
   name: null,
-  role: null,
-  shopid: null,
-  actualshop: null,
-  usergroupid: null,
-  shiftid: null,
-  CompanyID:null,
+  role: null
 };
-export interface CreateAdminPayload {
-  email?: string | null | undefined;
-  password?: string | null | undefined;
-  password_confirmation?: string | null | undefined;
-}
-
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private users: any[] = [];
+  private authState = new BehaviorSubject<AuthState>(this.getLocalState());
+  public auth$ = this.authState.asObservable().pipe(distinctUntilChanged());
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.checkLoginStatus());
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
-    // private readonly adminEmail = 'hireparalegaladmin@hpd.com';
-    // private readonly adminPassword = '123456';
+  private apiUrl = environment.apiUrl; 
+  private userEmail: string = '';
   constructor(
-    // @Inject(API_URL2) private api: string,
     private http: HttpClient,
     private router: Router
 
@@ -92,53 +37,87 @@ export class AuthService {
 
 this.loadUsers();
   }
-
   private loadUsers(): void {
     this.http.get<any[]>('/assets/users.json').subscribe((data) => {
       this.users = data;
     });
   }
+  signUp(userData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/users/signup`, userData);
+  }
+  verifyOtp(otpData: { email: string, otp: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/users/verify-otp`, otpData);
+  }
+  login(email: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/users/login`, { email, password }).pipe(
+      tap(response => {
+        if (response.token) {
+          this.storeAuthData(response);
 
-  login(email: string, password: string): string | null {
-    const user = this.users.find((u) => u.email === email && u.password === password);
+        }
+        console.log(response);
+      })
+    );
+  }
+  setEmail(email: string): void {
+    this.userEmail = email;
+  }
 
-    if (user) {
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('loggedInUser', JSON.stringify(user));
-      return user.name; // Return the name of the logged-in user
-    }
-    return null;
+  getEmail(): string {
+    return this.userEmail;
+  }
+
+  clearEmail(): void {
+    this.userEmail = '';
+  }
+  private storeAuthData(response: any): void {
+    const authData: AuthState = {
+      userId: response.user._id,
+      access_token: response.token,
+      name: response.user.name,
+      role: response.user.role
+    };
+
+    localStorage.setItem('auth', JSON.stringify(authData));
+    localStorage.setItem('token', response.token);
+    localStorage.setItem('username', response.user.name);
+    localStorage.setItem('role', response.user.role);
+    localStorage.setItem('isLoggedIn', 'true');
+
+    this.authState.next(authData);
+    this.isLoggedInSubject.next(true);
+    window.dispatchEvent(new Event('userLoggedIn')); // Notify UI updates
   }
   logout(): void {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('loggedInUser');
-    this.isLoggedInSubject.next(false); // Notify navbar to update UI
+    localStorage.removeItem('auth');
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('role');
+    localStorage.setItem('isLoggedIn', 'false');
+
+    this.authState.next(initialState);
+    this.isLoggedInSubject.next(false);
+    window.dispatchEvent(new Event('userLoggedOut'));
+
+    this.router.navigate(['/pages/homepage']);
   }
-  getLoggedInUser(): any {
-    return JSON.parse(localStorage.getItem('loggedInUser') || 'null');
+  getLoggedInUser(): AuthState | null {
+    return this.getLocalState();
   }
-  checkLoginStatus(): boolean {
+  private checkLoginStatus(): boolean {
     return localStorage.getItem('isLoggedIn') === 'true';
   }
-  private auth = new BehaviorSubject<AuthState>(this.getLocalState());
-  public auth$ = this.auth.asObservable().pipe(distinctUntilChanged());
-
-  get state(): AuthState {
-    return this.auth.getValue();
-  }
-
-  get role(): string | null | undefined | undefined {
-    return this.state.role;
-  }
-
-
-
-  public getLocalState(): AuthState {
+  private getLocalState(): AuthState {
     const localState = localStorage.getItem('auth');
-    if (localState) {
-      return JSON.parse(localState) as AuthState;
-    }
-    return initialState;
+    return localState ? (JSON.parse(localState) as AuthState) : initialState;
   }
-
+  resendOtp(email: string): Observable<any> {
+    const payload = { email };
+    return this.http.post(`${this.apiUrl}/users/resend-otp`, payload).pipe(
+      tap(response => {
+        console.log('OTP Resent Successfully:', response);
+      })
+    );
+  }
+  
 }

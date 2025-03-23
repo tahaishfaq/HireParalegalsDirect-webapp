@@ -1,6 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'app/shared/auth/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -11,54 +12,45 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginModalComponent implements OnInit {
   email: string = '';
   password: string = '';
+  loading: boolean = false;
 
-  // private readonly adminEmail = 'hireparalegaladmin@hpd.com';
-  // private readonly adminPassword = '123456';
-  constructor(public activeModal: NgbActiveModal, private toastr: ToastrService,  private authService: AuthService) { }
+  constructor(
+    public activeModal: NgbActiveModal,
+    private toastr: ToastrService,
+    private authService: AuthService,
+    private spinner: NgxSpinnerService
+  ) {}
 
-  ngOnInit(): void {
-  }
-  // onLogin(): void {
-  //   if (!this.authService.login(this.email, this.password)) {
-  //     if (this.email !== 'hireparalegaladmin@hpd.com') {
-  //       this.toastr.error('User does not exist', 'Error');
-  //     } else {
-  //       this.toastr.error('Wrong password', 'Error');
-  //     }
-  //     return;
-  //   }
-
-  //   this.toastr.success('User successfully logged in', 'Success');
-
-
-  //   localStorage.setItem('isLoggedIn', 'true');
-
-
-  //   window.dispatchEvent(new Event('userLoggedIn'));
-  //   this.activeModal.dismiss();
-  //   setTimeout(() => {
-  //     window.location.reload();
-  //   }, 500); 
-  // }
+  ngOnInit(): void {}
 
   onLogin(): void {
-    const userName = this.authService.login(this.email, this.password);
-  
-    if (!userName) {
-      this.toastr.error('Invalid email or password', 'Error');
+    if (!this.email || !this.password) {
+      this.toastr.warning('Please enter both email and password', 'Warning');
       return;
     }
-  
-    this.toastr.success(`${userName} successfully logged in`, 'Success');
-    this.activeModal.dismiss();
-  
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
+
+    this.spinner.show();
+    
+    this.authService.login(this.email, this.password).subscribe({
+      next: (response) => {
+        this.toastr.success(`${response.user.name} successfully logged in`, 'Success');
+        this.activeModal.dismiss(); // Close modal
+
+        setTimeout(() => {
+          window.location.reload(); // Refresh page to update UI state
+        }, 500);
+      },
+      error: (err) => {
+        this.toastr.error('Invalid email or password', 'Error');
+        console.error(err);
+      },
+      complete: () => {
+        this.spinner.hide();
+      }
+    });
   }
-  
+
   dismiss() {
     this.activeModal.dismiss(); // Closes the modal
   }
-
 }

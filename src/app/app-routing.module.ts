@@ -12,6 +12,7 @@ import { LawyerListingComponent } from './pages/content-pages/lawyer-listing/law
 import { ParalegalsByLocationComponent } from './pages/content-pages/paralegals-by-location/paralegals-by-location.component';
 import { ParalegalsByPracticeComponent } from './pages/content-pages/paralegals-by-practice/paralegals-by-practice.component';
 import { ParalegalsProfileComponent } from './pages/content-pages/paralegals-profile/paralegals-profile.component';
+import { JoinModalComponent } from './pages/content-pages/join-modal/join-modal.component';
 
 const appRoutes: Routes = [
   {
