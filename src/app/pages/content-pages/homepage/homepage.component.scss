@@ -180,7 +180,8 @@
 }
 
 .feature:hover .feature-content {
-  transform: translateX(10px); /* Moves the content 10px to the right */
+  transform: translateX(10px);
+  /* Moves the content 10px to the right */
 }
 
 /* Hover Effect */
@@ -712,12 +713,8 @@
 }
 
 .right-column img {
-  position: absolute;
-  right: -50px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  max-width: none;
+  object-fit: cover;
+  width: 90%;
 }
 
 .video-container {
@@ -857,7 +854,7 @@
       background: #1792C8;
       transition: background-color 0.3s ease-in-out;
     }
-    
+
     .content-section {
       width: 90%;
       padding: 10px;
@@ -867,7 +864,7 @@
       justify-content: center;
       transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     }
-    
+
     .black-section {
       width: 10%;
       background: black;
@@ -879,12 +876,12 @@
       gap: 8px;
       transition: background-color 0.3s ease-in-out;
     }
-    
+
     /* Hover Effect */
     .custom-box:hover .content-section {
       background: black;
     }
-    
+
     .custom-box:hover .black-section {
       background: #1792C8;
     }
@@ -894,7 +891,7 @@
       /* Adjust size as needed */
     }
 
-    .content-section p{
+    .content-section p {
       margin-bottom: 0.5em !important;
     }
 
@@ -1121,12 +1118,13 @@
 .custom-box:hover .black-section {
   background: #1792C8;
 }
+
 .check-icon {
   width: 16px;
   /* Adjust size as needed */
 }
 
-.content-section p{
+.content-section p {
   margin-bottom: 0.5em !important;
 }
 
