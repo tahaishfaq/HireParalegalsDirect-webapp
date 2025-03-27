@@ -37,8 +37,8 @@
       </div>
     </div>
     <div class="container">
-        <h1 class="fw-bold text-center">Find the best paralegals in {{ stateName }} by practice area</h1>
-        <p class="text-center">{{ stateName }} currently has more than {{ paralegalCount }} paralegals active on Hire Direct Paralegal. </p>
+        <h1 class="fw-bold text-center">Find the best paralegals in {{ selectedState.name }} by practice area</h1>
+        <p class="text-center">{{ selectedState.name }} currently has more than {{ paralegalCount }} paralegals active on Hire Direct Paralegal. </p>
     
         <div class="d-flex justify-content-center gap-3 mt-3">
             <button class="btn btn-outline-dark m-2">Practice Areas</button>
@@ -48,7 +48,7 @@
         </div>
         
     
-        <h3 class="mt-4">Practice Areas in {{ stateName }}</h3>
+        <h3 class="mt-4">Practice Areas in {{ selectedState.name }}</h3>
         <div class="row">
             <div class="col-md-3">
                 <ul class="list-unstyled">
@@ -108,97 +108,44 @@
             </div>
         </div>
 
-        <h3 class="mt-4" #topCities>Top Cities in {{ stateName }}</h3>
+        <h3 class="mt-4" #topCities>Top Cities in {{ selectedState?.name }}</h3>
+
+        <div class="row">
+          <ng-container *ngIf="topCities.length > 0; else noTopCities">
+            <div *ngFor="let city of topCities; let i = index" class="col-md-3">
+              <ul class="list-unstyled">
+                <li class="m-1"><a href="#">{{ city }}</a></li>
+              </ul>
+            </div>
+          </ng-container>
+        
+          <ng-template #noTopCities>
+            <p>No cities available for this state.</p>
+          </ng-template>
+        </div>
+        
+
+<h3 class="mt-4" #allCities>All Cities in {{ selectedState?.name }}</h3>
+
 <div class="row">
-    <div class="col-md-3">
-        <ul class="list-unstyled">
-            <li class="m-1"><a href="#">Anchorage</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
+  <ng-container *ngIf="cities.length > 0; else noCities">
+    <div *ngFor="let column of [0, 1, 2, 3]" class="col-md-3">
       <ul class="list-unstyled">
-         
-          <li class="m-1"><a href="#">Fairbanks</a></li>
-
+        <li *ngFor="let city of cities.slice(column * (cities.length / 4), (column + 1) * (cities.length / 4))" class="m-1">
+          <a href="#">{{ city }}</a>
+        </li>
       </ul>
-  </div>
-  <div class="col-md-3">
-    <ul class="list-unstyled">
-
-        <li class="m-1"><a href="#">Juneau</a></li>
-
-    </ul>
-</div>
-<div class="col-md-3">
-  <ul class="list-unstyled">
-
-      <li class="m-1"><a href="#">Sitka</a></li>
-
-  </ul>
-</div>
-</div>
-
-<h3 class="mt-4" #allCities>All Cities in {{ stateName }}</h3>
-<div class="row">
-    <div class="col-md-3">
-        <ul class="list-unstyled">
-            <li class="m-1"><a href="#">Anchorage</a></li>
-            <li class="m-1"><a href="#">Fairbanks</a></li>
-            <li class="m-1"><a href="#">Juneau</a></li>
-            <li class="m-1"><a href="#">Sitka</a></li>
-            <li class="m-1"><a href="#">Ketchikan</a></li>
-            <li class="m-1"><a href="#">Wasilla</a></li>
-            <li class="m-1"><a href="#">Kenai</a></li>
-            <li class="m-1"><a href="#">Kodiak</a></li>
-            <li class="m-1"><a href="#">Bethel</a></li>
-            <li class="m-1"><a href="#">Palmer</a></li>
-        </ul>
     </div>
-    <div class="col-md-3">
-        <ul class="list-unstyled">
-            <li class="m-1"><a href="#">Homer</a></li>
-            <li class="m-1"><a href="#">Nome</a></li>
-            <li class="m-1"><a href="#">Dillingham</a></li>
-            <li class="m-1"><a href="#">Seward</a></li>
-            <li class="m-1"><a href="#">Valdez</a></li>
-            <li class="m-1"><a href="#">Kotzebue</a></li>
-            <li class="m-1"><a href="#">Wrangell</a></li>
-            <li class="m-1"><a href="#">Petersburg</a></li>
-            <li class="m-1"><a href="#">Barrow</a></li>
-            <li class="m-1"><a href="#">Unalaska</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-      <ul class="list-unstyled">
-          <li class="m-1"><a href="#">Anchorage</a></li>
-          <li class="m-1"><a href="#">Fairbanks</a></li>
-          <li class="m-1"><a href="#">Juneau</a></li>
-          <li class="m-1"><a href="#">Sitka</a></li>
-          <li class="m-1"><a href="#">Ketchikan</a></li>
-          <li class="m-1"><a href="#">Wasilla</a></li>
-          <li class="m-1"><a href="#">Kenai</a></li>
-          <li class="m-1"><a href="#">Kodiak</a></li>
-          <li class="m-1"><a href="#">Bethel</a></li>
-          <li class="m-1"><a href="#">Palmer</a></li>
-      </ul>
-  </div>
-  <div class="col-md-3">
-    <ul class="list-unstyled">
-        <li class="m-1"><a href="#">Homer</a></li>
-        <li class="m-1"><a href="#">Nome</a></li>
-        <li class="m-1"><a href="#">Dillingham</a></li>
-        <li class="m-1"><a href="#">Seward</a></li>
-        <li class="m-1"><a href="#">Valdez</a></li>
-        <li class="m-1"><a href="#">Kotzebue</a></li>
-        <li class="m-1"><a href="#">Wrangell</a></li>
-        <li class="m-1"><a href="#">Petersburg</a></li>
-        <li class="m-1"><a href="#">Barrow</a></li>
-        <li class="m-1"><a href="#">Unalaska</a></li>
-    </ul>
-</div>
+  </ng-container>
+
+  <ng-template #noCities>
+    <p>No cities available for this state.</p>
+  </ng-template>
 </div>
 
-<h3 class="mt-4" #allCounties>All Counties in {{ stateName }}</h3>
+
+
+<h3 class="mt-4" #allCounties>All Counties in {{ selectedState.name }}</h3>
 <div class="row">
     <div class="col-md-3">
         <ul class="list-unstyled">

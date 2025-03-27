@@ -4,11 +4,19 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'app/shared/auth/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-
+import { trigger, state, style, animate, transition } from '@angular/animations';
 @Component({
   selector: 'app-verify-otp',
   templateUrl: './verify-otp.component.html',
-  styleUrls: ['./verify-otp.component.scss']
+  styleUrls: ['./verify-otp.component.scss'],
+  animations: [
+    trigger('slideInRight', [
+      transition(':enter', [
+        style({ transform: 'translateX(100%)', opacity: 0 }),
+        animate('0.5s ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class VerifyOtpComponent implements OnInit {
   verifyOtpForm: UntypedFormGroup;

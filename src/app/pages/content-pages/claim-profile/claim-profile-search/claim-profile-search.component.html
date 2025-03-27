@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="row align-items-center vh-100">
+      
+      <!-- Left Side - Image -->
+      <div class="col-lg-6 col-md-12 p-0 d-none d-md-block">
+        <img src="/assets/img/female-lawyer.jpg" alt="Profile Search" class="img-fluid w-100 h-100">
+      </div>
+  
+      <!-- Right Side - Search Form -->
+      <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center vh-100">
+        <div class="card shadow-lg p-4 w-100">
+            <div class="card-body">
+                <h2 class="text-center mb-4">Search for a Paralegal</h2>
+                
+                <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+                    
+                    <!-- First Name / Last Name -->
+                    <div class="form-group">
+                        <label for="name">First Name / Last Name</label>
+                        <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter First or Last Name"
+                        [ngClass]="{'is-invalid': submitted && searchForm.controls.name.errors}"
+                        >
+                        <div *ngIf="submitted && searchForm.controls.name.errors" class="text-danger small">
+                            Name is required.
+                        </div>
+                    </div>
+    
+                    <!-- City / ZIP / State -->
+                    <div class="form-group">
+                        <label for="city">City / ZIP / State</label>
+                        <input type="text" id="city" formControlName="city" class="form-control" placeholder="Enter City, ZIP, or State"
+                        [ngClass]="{'is-invalid': submitted && searchForm.controls.location.errors}"
+                        >
+                        <div *ngIf="submitted && searchForm.controls.location.errors" class="text-danger small">
+                            Location is required.
+                        </div>
+                    </div>
+    
+                    <!-- Search Button -->
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Search</button>
+    
+                </form>
+    
+                <!-- Other Action Buttons -->
+                <div class="d-flex justify-content-between mt-3">
+                    <button class="btn btn-outline-success w-45" (click)="onClaimProfile()">Claim Profile</button>
+                    <button class="btn btn-outline-info w-45" (click)="onContactSale()">Contact Sale</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+  </div>
+  

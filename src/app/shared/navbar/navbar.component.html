@@ -50,65 +50,21 @@
               </div>
       
               <!-- Browse by State (75%) -->
-              <div class="col-md-9">
-                <h6 class="fw-bold">Browse by State:</h6>
-                <div class="row">
-                    <div class="col-md-3">
-                        <ul class="list-unstyled">
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Alaska', count: '790' }">Alaska</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Arizona', count: '390' }">Arizona</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Alabama', count: '450' }">Alabama</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Arkansas', count: '320' }">Arkansas</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'California', count: '1200' }">California</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Colorado', count: '550' }">Colorado</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Connecticut', count: '290' }">Connecticut</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" (click)="dropdown.close()" [queryParams]="{ state: 'Delaware', count: '180' }">Delaware</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Dist. of Columbia', count: '200' }">Dist. of Columbia</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Florida', count: '980' }">Florida</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Georgia', count: '750' }">Georgia</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Hawaii', count: '150' }">Hawaii</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Idaho', count: '220' }">Idaho</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <ul class="list-unstyled">
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Illinois', count: '700' }">Illinois</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Indiana', count: '410' }">Indiana</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Iowa', count: '330' }">Iowa</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Kansas', count: '280' }">Kansas</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Kentucky', count: '350' }">Kentucky</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Louisiana', count: '400' }">Louisiana</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Maine', count: '180' }">Maine</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Maryland', count: '500' }">Maryland</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Massachusetts', count: '600' }">Massachusetts</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Michigan', count: '650' }">Michigan</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <ul class="list-unstyled">
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Montana', count: '170' }">Montana</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Nebraska', count: '210' }">Nebraska</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Nevada', count: '420' }">Nevada</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'New Hampshire', count: '190' }">New Hampshire</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'New Jersey', count: '780' }">New Jersey</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'New Mexico', count: '260' }">New Mexico</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'New York', count: '1300' }">New York</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'North Carolina', count: '680' }">North Carolina</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <ul class="list-unstyled">
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Texas', count: '1100' }">Texas</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Utah', count: '320' }">Utah</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Vermont', count: '140' }">Vermont</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Virginia', count: '640' }">Virginia</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Washington', count: '560' }">Washington</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Wisconsin', count: '490' }">Wisconsin</a></li>
-                            <li class="p-2"><a [routerLink]="'/paralegals-by-location'" [queryParams]="{ state: 'Wyoming', count: '160' }">Wyoming</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+           <div class="col-md-9">
+  <h6 class="fw-bold">Browse by State:</h6>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let state of states">
+      <ul class="list-unstyled">
+        <li class="p-2">
+          <a (click)="selectState(state)" (click)="dropdown.close()">
+            {{ state.name }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
             
             </div>
           </div>
@@ -213,9 +169,9 @@
         </ng-container>
       
         <ng-template #loggedOutButtons>
-         
-          <button class="btn btn-primary m-3" [routerLink]="'/pages/register'">Join Beta</button>
-          <button class="btn btn-outline-primary m-3" (click)="openLoginModal()">Sign In</button>
+          <button class="btn btn-outline-secondary m-3" [routerLink]="'/pages/claim-paralegal'">Grow your practice</button>
+          <button class="btn btn-primary m-3" [routerLink]="'/pages/register'">Sign Up</button>
+          <button class="btn btn-primary m-3" (click)="openLoginModal()">Sign In</button>
         </ng-template>
       </div>
     

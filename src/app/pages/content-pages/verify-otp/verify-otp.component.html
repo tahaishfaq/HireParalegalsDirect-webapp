@@ -1,39 +1,63 @@
-<section id="otp-verification" class="d-flex align-items-center justify-content-center vh-100">
-  <div class="card shadow-lg p-4 w-100 mx-3 mx-md-0" style="max-width: 450px;">
-    <div class="text-center">
-      <img src="/assets/img/logos/nav-logo.png" alt="OTP Verification" class="img-fluid d-none d-md-block mb-3" width="100">
-      <h4 class="mb-2">Verify OTP</h4>
-      <p class="text-muted">Enter the OTP sent to your email.</p>
-
-      <!-- OTP Timer -->
-      <p class="text-danger font-weight-bold" *ngIf="timerRunning">
-        OTP expires in: <span>{{ formattedTime }}</span>
-      </p>
-      <p class="text-warning" *ngIf="!timerRunning">
-        OTP expired. Click "Resend OTP" to receive a new one.
-      </p>
-
-      <form [formGroup]="verifyOtpForm">
-        <div class="form-group">
-          <input type="text" formControlName="otp" class="form-control text-center" placeholder="Enter OTP"
-            [ngClass]="{ 'is-invalid': verifyOtpFormSubmitted && vf.otp.invalid, 'is-valid': verifyOtpFormSubmitted && !vf.otp.invalid }"
-            required [disabled]="!timerRunning">
-          <div *ngIf="verifyOtpFormSubmitted && vf.otp.errors?.required" class="text-danger small mt-1">
-            <i class="ft-alert-circle align-middle"></i> OTP is required
-          </div>
-          <div *ngIf="verifyOtpFormSubmitted && (vf.otp.errors?.minlength || vf.otp.errors?.maxlength)" class="text-danger small mt-1">
-            <i class="ft-alert-circle align-middle"></i> OTP must be 6 digits
+<section id="regestration">
+  <div class="row auth-height m-0">
+    <div class="col-12 d-flex align-items-center">
+      <div class="card overflow-hidden">
+        <div class="card-content">
+          <div class="card-body auth-img">
+            <div class="row m-0">
+              <div
+                class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center text-center auth-img-bg py-2">
+                <img src="/assets/img/male-lawyer.png" alt="" class="img-fluid" width="350" height="250">
+              </div>
+              <div class="col-lg-6 col-md-12 px-4 py-3 align-self-center" 
+              @slideInRight>
+           <div class="text-center">
+             <!-- <img src="/assets/img/logos/nav-logo.png" alt="OTP Verification"
+                  class="img-fluid d-none d-md-block mb-3" width="100"> -->
+             <h4 class="mb-2">Verify OTP</h4>
+             <p class="text-muted">Enter the OTP sent to your email.</p>
+         
+             <!-- OTP Timer -->
+             <p class="text-danger font-weight-bold" *ngIf="timerRunning">
+               OTP expires in: <span>{{ formattedTime }}</span>
+             </p>
+             <p class="text-warning" *ngIf="!timerRunning">
+               OTP expired. Click "Resend OTP" to receive a new one.
+             </p>
+         
+             <form [formGroup]="verifyOtpForm">
+               <div class="form-group">
+                 <input type="text" formControlName="otp" class="form-control text-center" 
+                        placeholder="Enter OTP"
+                        [ngClass]="{ 'is-invalid': verifyOtpFormSubmitted && vf.otp.invalid, 
+                                     'is-valid': verifyOtpFormSubmitted && !vf.otp.invalid }"
+                        required [disabled]="!timerRunning">
+                 <div *ngIf="verifyOtpFormSubmitted && vf.otp.errors?.required" class="text-danger small mt-1">
+                   <i class="ft-alert-circle align-middle"></i> OTP is required
+                 </div>
+                 <div *ngIf="verifyOtpFormSubmitted && (vf.otp.errors?.minlength || vf.otp.errors?.maxlength)" 
+                      class="text-danger small mt-1">
+                   <i class="ft-alert-circle align-middle"></i> OTP must be 6 digits
+                 </div>
+               </div>
+         
+               <div class="d-flex justify-content-between mt-3">
+                 <a [routerLink]="['/pages/register']" class="btn btn-light">Back</a>
+                 <button type="button" class="btn btn-primary" (click)="onVerifyOtp()" [disabled]="!timerRunning">
+                   Verify OTP
+                 </button>
+               </div>
+             </form>
+         
+             <!-- Resend OTP Button -->
+             <button *ngIf="!timerRunning" class="btn btn-link mt-3" (click)="onResendOtp()">Resend OTP</button>
+           </div>
+         </div>
+         
+            </div>
           </div>
         </div>
-
-        <div class="d-flex justify-content-between mt-3">
-          <a [routerLink]="['/pages/register']" class="btn btn-light">Back</a>
-          <button type="button" class="btn btn-primary" (click)="onVerifyOtp()" [disabled]="!timerRunning">Verify OTP</button>
-        </div>
-      </form>
-
-      <!-- Resend OTP Button -->
-      <button *ngIf="!timerRunning" class="btn btn-link mt-3" (click)="onResendOtp()">Resend OTP</button>
+      </div>
     </div>
   </div>
 </section>

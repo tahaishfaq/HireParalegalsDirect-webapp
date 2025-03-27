@@ -13,7 +13,8 @@ import { pluck } from 'rxjs/operators';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginModalComponent } from 'app/pages/content-pages/login-modal/login-modal.component';
 import { JoinModalComponent } from 'app/pages/content-pages/join-modal/join-modal.component';
-
+import { StateService } from '../services/state.service';
+import { Country, State, City }  from 'country-state-city';
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
@@ -39,7 +40,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   configSub: Subscription;
   name: string;
   username$: Observable<string>;
-
+  states: any[] = [];
   @ViewChild('search') searchElement: ElementRef;
   @ViewChildren('searchResults') searchResults: QueryList<any>;
 
@@ -60,6 +61,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     private modalService: NgbModal,
     private configService: ConfigService, private cdr: ChangeDetectorRef,
     public auth: AuthService,
+    private stateService: StateService
   ) {
 
     this.username$ = this.auth.auth$.pipe(pluck('name'));
@@ -77,7 +79,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-
+this.loadStates();
     this.listItems = LISTITEMS;
 
     if (this.innerWidth < 1200) {
@@ -102,6 +104,15 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isLoggedIn = status;
     });
   
+  }
+  loadStates() {
+    this.states = State.getStatesOfCountry('US'); // Fetching US states
+    console.log(this.states);
+  }
+
+  selectState(state: any) {
+    this.stateService.setSelectedState(state);
+    this.router.navigate(['/paralegals-by-location']);
   }
   logout(): void {
     this.auth.logout();
@@ -181,68 +192,12 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.transparentBGClass = "";
     }
   }
-  onSearchKey(event: any) {
-    if (this.searchResults && this.searchResults.length > 0) {
-      this.searchResults.first.host.nativeElement.classList.add('first-active-item');
-    }
 
-    if (event.target.value === "") {
-      this.seachTextEmpty.emit(true);
-    }
-    else {
-      this.seachTextEmpty.emit(false);
-    }
-  }
 
-  removeActiveClass() {
-    if (this.searchResults && this.searchResults.length > 0) {
-      this.searchResults.first.host.nativeElement.classList.remove('first-active-item');
-    }
-  }
-
-  onEscEvent() {
-    this.control.setValue("");
-    this.searchOpenClass = '';
-    this.seachTextEmpty.emit(true);
-  }
-
-  onEnter() {
-    if (this.searchResults && this.searchResults.length > 0) {
-      let url = this.searchResults.first.url;
-      if (url && url != '') {
-        this.control.setValue("");
-        this.searchOpenClass = '';
-        this.router.navigate([url]);
-        this.seachTextEmpty.emit(true);
-      }
-    }
-  }
 
   redirectTo(value) {
     this.router.navigate([value]);
     this.seachTextEmpty.emit(true);
-  }
-
-
-  ChangeLanguage(language: string) {
-    this.translate.use(language);
-
-    if (language === 'en') {
-      this.selectedLanguageText = "English";
-      this.selectedLanguageFlag = "./assets/img/flags/us.png";
-    }
-    else if (language === 'es') {
-      this.selectedLanguageText = "Spanish";
-      this.selectedLanguageFlag = "./assets/img/flags/es.png";
-    }
-    else if (language === 'pt') {
-      this.selectedLanguageText = "Portuguese";
-      this.selectedLanguageFlag = "./assets/img/flags/pt.png";
-    }
-    else if (language === 'de') {
-      this.selectedLanguageText = "German";
-      this.selectedLanguageFlag = "./assets/img/flags/de.png";
-    }
   }
 
   ToggleClass() {
@@ -253,25 +208,6 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  toggleSearchOpenClass(display) {
-    this.control.setValue("");
-    if (display) {
-      this.searchOpenClass = 'open';
-      setTimeout(() => {
-        this.searchElement.nativeElement.focus();
-      }, 0);
-    }
-    else {
-      this.searchOpenClass = '';
-    }
-    this.seachTextEmpty.emit(true);
-  }
-
-// logout(){
-//   this.auth.logout();
-  
-//   console.log("Logout is called");
-// }
 
   toggleNotificationSidebar() {
     this.layoutService.toggleNotificationSidebar(true);
