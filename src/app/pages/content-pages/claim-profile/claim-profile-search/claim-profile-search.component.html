@@ -12,15 +12,15 @@
             <div class="card-body">
                 <h2 class="text-center mb-4">Search for a Paralegal</h2>
                 
-                <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+                <form [formGroup]="searchForm" *ngIf="searchForm">
                     
                     <!-- First Name / Last Name -->
                     <div class="form-group">
                         <label for="name">First Name / Last Name</label>
                         <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter First or Last Name"
-                        [ngClass]="{'is-invalid': submitted && searchForm.controls.name.errors}"
+                        [ngClass]="{'is-invalid': submitted && searchForm.get('name')?.errors}"
                         >
-                        <div *ngIf="submitted && searchForm.controls.name.errors" class="text-danger small">
+                        <div *ngIf="submitted && searchForm.get('name')?.errors" class="text-danger small">
                             Name is required.
                         </div>
                     </div>
@@ -29,22 +29,26 @@
                     <div class="form-group">
                         <label for="city">City / ZIP / State</label>
                         <input type="text" id="city" formControlName="city" class="form-control" placeholder="Enter City, ZIP, or State"
-                        [ngClass]="{'is-invalid': submitted && searchForm.controls.location.errors}"
+                        [ngClass]="{'is-invalid': submitted && searchForm.get('city')?.errors}"
                         >
-                        <div *ngIf="submitted && searchForm.controls.location.errors" class="text-danger small">
+                        <div *ngIf="submitted && searchForm.get('city')?.errors" class="text-danger small">
                             Location is required.
                         </div>
                     </div>
+
+                    <div *ngIf="apiErrorMessage" class="text-danger small mt-1">
+                        {{ apiErrorMessage }}
+                    </div>
     
                     <!-- Search Button -->
-                    <button type="submit" class="btn btn-primary w-100 mt-3">Search</button>
+                    <button type="submit" class="btn btn-primary w-100 mt-3" (click)="onSearch()">Search</button>
     
                 </form>
     
                 <!-- Other Action Buttons -->
                 <div class="d-flex justify-content-between mt-3">
                     <button class="btn btn-outline-success w-45" (click)="onClaimProfile()">Claim Profile</button>
-                    <button class="btn btn-outline-info w-45" (click)="onContactSale()">Contact Sale</button>
+                    <button class="btn btn-outline-info w-45" [routerLink]="['/pages/contact-sales']" >Contact Sale</button>
                 </div>
             </div>
         </div>
