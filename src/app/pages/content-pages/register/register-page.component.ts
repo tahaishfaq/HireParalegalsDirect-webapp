@@ -34,7 +34,9 @@ export class RegisterPageComponent implements OnInit {
   get rf() {
     return this.registerForm.controls;
   }
-
+  signInWithGoogle() {
+    this.authService.googleSignIn();
+  }
   onSubmit() {
     this.registerFormSubmitted = true;
   

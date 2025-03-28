@@ -7,6 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { distinctUntilChanged, map, shareReplay, tap } from 'rxjs/operators';
 import { environment } from 'environments/environment';
+import { ToastrService } from 'ngx-toastr';
 export interface AuthState {
   userId?: string | null;
   access_token?: string | null;
@@ -31,7 +32,9 @@ export class AuthService {
   private userEmail: string = '';
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private afAuth: AngularFireAuth,
+    private toastr: ToastrService
 
   ) {
 
@@ -41,6 +44,16 @@ this.loadUsers();
     this.http.get<any[]>('/assets/users.json').subscribe((data) => {
       this.users = data;
     });
+  }
+  async googleSignIn() {
+    try {
+      const result = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      this.toastr.success('Google Sign-in successful!', 'Success 🎉');
+      console.log('Google Sign-in success:', result);
+    } catch (error) {
+      this.toastr.error('Google Sign-in failed. Please try again.', 'Error ❌');
+      console.error('Google Sign-in error:', error);
+    }
   }
   signUp(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/users/signup`, userData);

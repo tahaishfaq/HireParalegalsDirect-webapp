@@ -1,64 +1,80 @@
-<div class="container-fluid ">
-
-    <!-- Banner (Hidden on Mobile) -->
-    <div class="banner w-100 d-none d-md-block"></div>
-
-    <!-- Centered Form Card -->
-    <div class="container d-flex justify-content-center align-items-center flex-grow-1">
-        <div class="card p-4 shadow-lg rounded" style="width: 100%; max-width: 500px;">
-            <h3 class="text-center mb-4">Contact Sales</h3>
-            
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+<!--Registration Page Starts-->
+<section id="regestration">
+    <div class="row auth-height m-0">
+      <div class="col-12 d-flex align-items-center">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body auth-img">
+                <div class="row justify-content-center text-center">
+                    <h1>Contact Sales</h1>
+                </div>
                 
-                <!-- Name -->
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter your name"
-                    [ngClass]="{'is-invalid': submitted && contactForm.controls.name.errors}">
-                    <div *ngIf="submitted && contactForm.controls.name.errors" class="text-danger small">
-                        Name is required.
+              <div class="row m-0">
+                <div
+                  class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center text-center auth-img-bg py-2">
+                  <img src="/assets/img/contact-sales-1.png" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-6 col-md-12 px-4 py-3 align-self-center">
+
+                  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                
+                    <!-- Name -->
+                    <div class="mb-0">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter your name"
+                        [ngClass]="{'is-invalid': submitted && contactForm.controls.name.errors}">
+                        <div *ngIf="submitted && contactForm.controls.name.errors" class="text-danger small">
+                            Name is required.
+                        </div>
                     </div>
-                </div>
-
-                <!-- Email -->
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" formControlName="email" class="form-control" placeholder="Enter your email"
-                    [ngClass]="{'is-invalid': submitted && contactForm.controls.email.errors}">
-                    <div *ngIf="submitted && contactForm.controls.email.errors" class="text-danger small">
-                        Valid email is required.
+    
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" formControlName="email" class="form-control" placeholder="Enter your email"
+                        [ngClass]="{'is-invalid': submitted && contactForm.controls.email.errors}">
+                        <div *ngIf="submitted && contactForm.controls.email.errors" class="text-danger small">
+                            Valid email is required.
+                        </div>
                     </div>
-                </div>
-
-                <!-- Phone -->
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Phone</label>
-                    <input type="tel" id="phone" formControlName="phone" class="form-control" placeholder="Enter your phone number"
-                    [ngClass]="{'is-invalid': submitted && contactForm.controls.phone.errors}">
-                    <div *ngIf="submitted && contactForm.controls.phone.errors" class="text-danger small">
-                        Phone number is required.
+    
+                    <!-- Phone -->
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" id="phone" formControlName="phone" class="form-control" placeholder="Enter your phone number"
+                        [ngClass]="{'is-invalid': submitted && contactForm.controls.phone.errors}">
+                        <div *ngIf="submitted && contactForm.controls.phone.errors" class="text-danger small">
+                            Phone number is required.
+                        </div>
                     </div>
-                </div>
-
-                <!-- Message -->
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea id="message" formControlName="message" class="form-control" rows="4" placeholder="Enter your message"
-                    [ngClass]="{'is-invalid': submitted && contactForm.controls.message.errors}"></textarea>
-                    <div *ngIf="submitted && contactForm.controls.message.errors" class="text-danger small">
-                        Message is required.
+    
+                    <!-- Message -->
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" formControlName="message" class="form-control" rows="4" placeholder="Enter your message"
+                        [ngClass]="{'is-invalid': submitted && contactForm.controls.message.errors}"></textarea>
+                        <div *ngIf="submitted && contactForm.controls.message.errors" class="text-danger small">
+                            Message is required.
+                        </div>
                     </div>
+    
+                    <!-- Submit Button -->
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+                            <span *ngIf="!isLoading">Submit</span>
+                            <span *ngIf="isLoading"><i class="fa fa-spinner fa-spin"></i> Submitting...</span>
+                        </button>
+                    </div>
+    
+                </form>
+  
                 </div>
-
-                <!-- Submit Button -->
-                <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary" [disabled]="isLoading">
-                        <span *ngIf="!isLoading">Submit</span>
-                        <span *ngIf="isLoading"><i class="fa fa-spinner fa-spin"></i> Submitting...</span>
-                    </button>
-                </div>
-
-            </form>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </section>
+  <!--Registration Page Ends-->
+  
