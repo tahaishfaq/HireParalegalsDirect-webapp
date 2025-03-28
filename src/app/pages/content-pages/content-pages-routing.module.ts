@@ -16,6 +16,7 @@ import { ParalegalsProfileComponent } from './paralegals-profile/paralegals-prof
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { ClaimProfileSearchComponent } from './claim-profile/claim-profile-search/claim-profile-search.component';
 import { ContactSaleTicketComponent } from './claim-profile/contact-sale-ticket/contact-sale-ticket.component';
+import { ClaimProfileListingComponent } from './claim-profile/claim-profile-listing/claim-profile-listing.component';
 
 
 const routes: Routes = [
@@ -127,7 +128,14 @@ const routes: Routes = [
         data: {
           title: 'contact-sales'
         }
-      }   
+      },
+      {
+        path: 'claim-profile-listing',
+        component: ClaimProfileListingComponent,
+        data: {
+          title: 'claim-profile-listing'
+        }
+      }      
       
     ]
   }

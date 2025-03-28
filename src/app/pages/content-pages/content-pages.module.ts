@@ -28,6 +28,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { ClaimProfileSearchComponent } from './claim-profile/claim-profile-search/claim-profile-search.component';
 import { ContactSaleTicketComponent } from './claim-profile/contact-sale-ticket/contact-sale-ticket.component';
+import { ClaimProfileListingComponent } from './claim-profile/claim-profile-listing/claim-profile-listing.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -68,7 +69,8 @@ export function createTranslateLoader(http: HttpClient) {
     ParalegalsProfileComponent,
     VerifyOtpComponent,
     ClaimProfileSearchComponent,
-    ContactSaleTicketComponent
+    ContactSaleTicketComponent,
+    ClaimProfileListingComponent
   ]
 })
 export class ContentPagesModule { }

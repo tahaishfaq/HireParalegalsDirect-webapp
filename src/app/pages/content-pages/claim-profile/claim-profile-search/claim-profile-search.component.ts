@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { environment } from 'environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { finalize } from 'rxjs/operators';
+import { ClaimProfileService } from '../claimProfile.service';
 
 @Component({
   selector: 'app-claim-profile-search',
@@ -21,7 +22,8 @@ export class ClaimProfileSearchComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private claimProfileService: ClaimProfileService
   ) {
     this.searchForm = this.fb.group({
       name: ['', Validators.required],
@@ -45,24 +47,26 @@ export class ClaimProfileSearchComponent implements OnInit {
 
     const { name, city } = this.searchForm.value;
     const apiUrl = `${environment.apiUrl}/lawyers/search?name=${encodeURIComponent(name)}&city=${encodeURIComponent(city)}`;
-
     this.http.get<any>(apiUrl).subscribe(
       (response) => {
-        if (Array.isArray(response) && response.length > 0) {
-          this.router.navigate(['/claim-profile-listing']);
+        if (response?.lawyers && Array.isArray(response.lawyers) && response.lawyers.length > 0) {
+          const lawyerName = response.lawyers[0]?.user?.name || 'Unknown Lawyer';
+          this.toastr.success(`Lawyer Found: ${lawyerName}`, 'Search Result');
+
+          this.claimProfileService.setSearchResults(response.lawyers);
+          this.router.navigate(['/pages/claim-profile-listing']);
         } else {
-          this.apiErrorMessage = 'No profile found. Contact sales to create one.';
+          this.apiErrorMessage = response?.message || 'No profile found. Contact sales to create one.';
           this.toastr.warning(this.apiErrorMessage, 'Search Result');
-          // this.isLoading = false;
         }
       },
       (error) => {
-        // this.isLoading = false; // Stop loading on error
         console.error('Search Error:', error);
         this.apiErrorMessage = error?.error?.message || 'Error while searching. Please try again.';
         this.toastr.error(this.apiErrorMessage, 'Error');
       }
     );
+    
 }
 
 
