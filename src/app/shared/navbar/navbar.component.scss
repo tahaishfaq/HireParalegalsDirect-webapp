@@ -1,38 +1,43 @@
 .large-dropdown {
-    width: 60vw; /* 60% width of screen */
-    left: 20vw;  /* Centered dropdown */
-    right: auto;
-  }
+  width: 60vw;
+  /* 60% width of screen */
+  left: 20vw;
+  /* Centered dropdown */
+  right: auto;
+}
 
-  .dropdown-menu {
-    padding: 0px;
-    border-radius: 5px;
-    margin-top: -0.5rem;
-    margin-left: -1.3rem;
-  }
+.dropdown-menu {
+  padding: 0px;
+  border-radius: 5px;
+  margin-top: -0.5rem;
+  margin-left: -1.3rem;
+}
 
-  .table td {
-    padding: 10px;
-    font-weight: 500;
-  }
+.table td {
+  padding: 10px;
+  font-weight: 500;
+}
 
-  .container {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 5%;  // Ensure spacing inside the container
-  }
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 5%; // Ensure spacing inside the container
+}
 
-  /* Make dropdown full width and 70% screen height */
+/* Make dropdown full width and 70% screen height */
 .custom-dropdown {
   min-width: 100vw;
-  height: 60vh; /* Covers 70% of viewport height */
+  height: 60vh;
+  /* Covers 70% of viewport height */
   left: 0 !important;
   right: 0 !important;
   overflow-y: auto;
 }
+
 .custom-dropdown-practice {
   min-width: 100vw;
-  height: 50vh; /* Covers 70% of viewport height */
+  height: 50vh;
+  /* Covers 70% of viewport height */
   left: 0 !important;
   right: 0 !important;
   overflow-y: auto;
@@ -60,24 +65,66 @@
 .list-unstyled li a:hover {
   text-decoration: underline;
 }
+
 .logged-in-user-btn:hover .logged-in-user {
-  color: #1792C8; /* Change to desired hover color */
+  color: #1792C8;
+  /* Change to desired hover color */
   transition: color 0.3s ease-in-out;
 }
+
 /* Change text color on hover */
 .dropdown-animated {
   transition: all 0.3s ease-in-out;
 }
 
 .dropdown-animated:hover {
-  background-color: #1792C8; /* Change to your preferred color */
-  color: #ffffff; /* Text color on hover */
+  background-color: #1792C8;
+  /* Change to your preferred color */
+  color: #ffffff;
+  /* Text color on hover */
 }
 
 
 
 /* Button hover effect */
 .logged-in-user-btn:hover .logged-in-user {
-  color: #1792C8; /* Change to desired hover color */
+  color: #1792C8;
+  /* Change to desired hover color */
   transition: color 0.3s ease-in-out;
+}
+
+.menu-list1{
+  justify-content: center;
+}
+.menu-list2{
+  justify-content: end;
+}
+
+@media (min-width:450px) and (max-width:800px) {
+  .navbar-nav {
+    display: flex;
+    gap: 2em;
+    flex-direction: row;
+  }
+  .menu-list1{
+    justify-content: left;
+  }
+  .menu-list2{
+    justify-content: left;
+  }
+}
+
+@media screen and (max-width:449px) {
+  .navbar-nav {
+    display: flex;
+    // gap: 2em;
+    flex-direction: column !important;
+  }
+
+  .menu-list1{
+    justify-content: left;
+  }
+  .menu-list2{
+    justify-content: left;
+  }
 }

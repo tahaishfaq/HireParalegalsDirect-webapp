@@ -194,6 +194,29 @@ this.loadStates();
   }
 
 
+  isNavbarOpen = false;
+
+  toggleNavbar() {
+    this.isNavbarOpen = !this.isNavbarOpen;
+  }
+
+
+  toggleSearchOpenClass(display) {
+    this.control.setValue("");
+    if (display) {
+      this.searchOpenClass = 'open';
+      setTimeout(() => {
+        this.searchElement.nativeElement.focus();
+      }, 0);
+    }
+    else {
+      this.searchOpenClass = '';
+    }
+    this.seachTextEmpty.emit(true);
+
+
+
+  }
 
   redirectTo(value) {
     this.router.navigate([value]);

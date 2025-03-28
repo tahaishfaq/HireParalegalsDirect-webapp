@@ -1,182 +1,218 @@
 <!-- Bootstrap Navbar -->
 <nav class="navbar navbar-expand-lg bg-light py-3" style="background-color: #f5f5f5 !important;">
   <!-- <div class="container"> -->
-    
-
-        <!-- Navbar Toggler (for mobile) -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-    <!-- Logo (Left-aligned) -->
-    <a class="navbar-brand" href="#">
-      <img src="/assets/img/logos/nav-logo.png" alt="Hire Paralegals Direct" height="50">
-    </a>
 
 
+  <!-- Navbar Toggler (for mobile) -->
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <i class="ft-menu font-medium-3"></i>
+  </button> -->
 
-    <!-- Navbar Items (Center-aligned) -->
-    <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active text-primary" href="#">Home</a>
-        </li>
-        <!-- Paralegal by Location Dropdown -->
-        <li class="nav-item dropdown position-static" ngbDropdown #dropdown="ngbDropdown">
-          <a class="nav-link dropdown-toggle" ngbDropdownToggle>
-            Paralegals By Location
-          </a>
-        
-          <div class="dropdown-menu w-100 p-4 custom-dropdown" style="background-color: #fff;" ngbDropdownMenu>
-            <div class="row h-100">
-              <!-- Browse by Cities (25%) -->
-              <div class="col-md-3 border-end ">
-                <h6 class="fw-bold">Browse by Popular Cities:</h6>
-                <ul class="list-unstyled">
-                  <li class="p-2"><a href="#">Atlanta, GA</a></li>
-                  <li class="p-2"><a href="#">Boston, MA</a></li>
-                  <li class="p-2"><a href="#">Chicago, IL</a></li>
-                  <li class="p-2"><a href="#">Dallas, TX</a></li>
-                  <li class="p-2"><a href="#">Houston, TX</a></li>
-                  <li class="p-2"><a href="#">Los Angeles, CA</a></li>
-                  <li class="p-2"><a href="#">Miami, FL</a></li>
-                  <li class="p-2"><a href="#">New York, NY</a></li>
-                  <li class="p-2"><a href="#">Philadelphia, PA</a></li>
-                  <li class="p-2"><a href="#">Phoenix, AZ</a></li>
-                  <li class="p-2"><a href="#">San Antonio, TX</a></li>
-                  <li class="p-2"><a href="#">San Jose, CA</a></li>
-                  <li class="p-2"><a href="#">Seattle, WA</a></li>
-                </ul>
-              </div>
-      
-              <!-- Browse by State (75%) -->
-           <div class="col-md-9">
-  <h6 class="fw-bold">Browse by State:</h6>
-  <div class="row">
-    <div class="col-md-3" *ngFor="let state of states">
-      <ul class="list-unstyled">
-        <li class="p-2">
-          <a (click)="selectState(state)" (click)="dropdown.close()">
-            {{ state.name }}
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
 
-            
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="ft-menu font-medium-3"></i>
+  </button>
+
+  <!-- Logo (Left-aligned) -->
+  <a class="navbar-brand" href="#">
+    <img src="/assets/img/logos/nav-logo.png" alt="Hire Paralegals Direct" height="50">
+  </a>
+
+
+
+  <!-- Navbar Items (Center-aligned) -->
+  <div class="collapse navbar-collapse menu-list1" id="navbarText">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active text-primary" href="#">Home</a>
+      </li>
+      <!-- Paralegal by Location Dropdown -->
+      <li class="nav-item dropdown position-static" ngbDropdown #dropdown="ngbDropdown">
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+          Paralegals By Location
+        </a>
+
+        <div class="dropdown-menu w-100 p-4 custom-dropdown" style="background-color: #fff;" ngbDropdownMenu>
+          <div class="row h-100">
+            <!-- Browse by Cities (25%) -->
+            <div class="col-md-3 border-end ">
+              <h6 class="fw-bold">Browse by Popular Cities:</h6>
+              <ul class="list-unstyled">
+                <li class="p-2"><a href="#">Atlanta, GA</a></li>
+                <li class="p-2"><a href="#">Boston, MA</a></li>
+                <li class="p-2"><a href="#">Chicago, IL</a></li>
+                <li class="p-2"><a href="#">Dallas, TX</a></li>
+                <li class="p-2"><a href="#">Houston, TX</a></li>
+                <li class="p-2"><a href="#">Los Angeles, CA</a></li>
+                <li class="p-2"><a href="#">Miami, FL</a></li>
+                <li class="p-2"><a href="#">New York, NY</a></li>
+                <li class="p-2"><a href="#">Philadelphia, PA</a></li>
+                <li class="p-2"><a href="#">Phoenix, AZ</a></li>
+                <li class="p-2"><a href="#">San Antonio, TX</a></li>
+                <li class="p-2"><a href="#">San Jose, CA</a></li>
+                <li class="p-2"><a href="#">Seattle, WA</a></li>
+              </ul>
             </div>
-          </div>
-        </li>
-        
-        
-        
 
-        <!-- Paralegal by Practice Dropdown -->
-        <li class="nav-item dropdown position-static" ngbDropdown>
-          <a class="nav-link dropdown-toggle" ngbDropdownToggle>
-            Paralegals By Practice
-          </a>
-        
-          <div class="dropdown-menu w-100 p-4 custom-dropdown-practice" ngbDropdownMenu>
-            <div class="row h-100">
-              <!-- Browse by Practice Areas -->
-              <div class="col-md-12">
-                <h6 class="fw-bold m-2">Browse by Practice Area:</h6>
-           
-                <div class="row">
-                  <div class="col-md-3">
-                    <ul class="list-unstyled">
-                      <li class="p-2"><a href="#">Bankruptcy Paralegal</a></li>
-                      <li class="p-2"><a href="#">Corporate Paralegal</a></li>
-                      <li class="p-2"><a href="#">Criminal Law Paralegal</a></li>
-                      <li class="p-2"><a href="#">Elder Law Paralegal</a></li>
-                      <li class="p-2"><a href="#">Employment Law Paralegal</a></li>
-                      <li class="p-2"><a href="#">Environmental Law Paralegal</a></li>
-                      <li class="p-2"><a href="#">Estate Planning Paralegal</a></li>
-                      <li class="p-2"><a class="btn btn-primary" style="color: #fff;" routerLink="/paralegals-by-practice">See More Practices</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-md-3">
-                    <ul class="list-unstyled">
-                      <li class="p-2"><a href="#">Family Law Paralegal</a></li>
-                      <li class="p-2"><a href="#">Government Paralegal</a></li>
-                      <li class="p-2"><a href="#">Healthcare Paralegal</a></li>
-                      <li class="p-2"><a href="#">Immigration Paralegal</a></li>
-                      <li class="p-2"><a href="#">Intellectual Property Paralegal</a></li>
-                      <li class="p-2"><a href="#">Litigation Paralegal</a></li>
-                      <li class="p-2"><a href="#">Medical Malpractice Paralegal</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-md-3">
-                    <ul class="list-unstyled">
-                      <li class="p-2"><a href="#">Personal Injury Paralegal</a></li>
-                      <li class="p-2"><a href="#">Probate Paralegal</a></li>
-                      <li class="p-2"><a href="#">Real Estate Paralegal</a></li>
-                      <li class="p-2"><a href="#">Securities Paralegal</a></li>
-                      <li class="p-2"><a href="#">Social Security Disability Paralegal</a></li>
-                      <li class="p-2"><a href="#">Tax Law Paralegal</a></li>
-                      <li class="p-2"><a href="#">Trademark & Copyright Paralegal</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-md-3">
-                    <ul class="list-unstyled">
-                      <li class="p-2"><a href="#">Transactional Law Paralegal</a></li>
-                      <li class="p-2"><a href="#">Workers' Compensation Paralegal</a></li>
-                      <li class="p-2"><a href="#">Corporate Compliance Paralegal</a></li>
-                      <li class="p-2"><a href="#">Insurance Law Paralegal</a></li>
-                      <li class="p-2"><a href="#">Entertainment Law Paralegal</a></li>
-                      <li class="p-2"><a href="#">Civil Rights Paralegal</a></li>
-                      <li class="p-2"><a href="#">International Law Paralegal</a></li>
-                      <!-- <li class="p-2"> <a class="btn btn-primary" style="color: #fff;" routerLink="/paralegals-by-practice">See More Practices</a></li> -->
-                    </ul>
-                  </div>
+            <!-- Browse by State (75%) -->
+            <div class="col-md-9">
+              <h6 class="fw-bold">Browse by State:</h6>
+              <div class="row">
+                <div class="col-md-3" *ngFor="let state of states">
+                  <ul class="list-unstyled">
+                    <li class="p-2">
+                      <a (click)="selectState(state)" (click)="dropdown.close()">
+                        {{ state.name }}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </li>
+
+
+
+
+      <!-- Paralegal by Practice Dropdown -->
+      <li class="nav-item dropdown position-static" ngbDropdown>
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+          Paralegals By Practice
+        </a>
+
+        <div class="dropdown-menu w-100 p-4 custom-dropdown-practice" ngbDropdownMenu>
+          <div class="row h-100">
+            <!-- Browse by Practice Areas -->
+            <div class="col-md-12">
+              <h6 class="fw-bold m-2">Browse by Practice Area:</h6>
+
+              <div class="row">
+                <div class="col-md-3">
+                  <ul class="list-unstyled">
+                    <li class="p-2"><a href="#">Bankruptcy Paralegal</a></li>
+                    <li class="p-2"><a href="#">Corporate Paralegal</a></li>
+                    <li class="p-2"><a href="#">Criminal Law Paralegal</a></li>
+                    <li class="p-2"><a href="#">Elder Law Paralegal</a></li>
+                    <li class="p-2"><a href="#">Employment Law Paralegal</a></li>
+                    <li class="p-2"><a href="#">Environmental Law Paralegal</a></li>
+                    <li class="p-2"><a href="#">Estate Planning Paralegal</a></li>
+                    <li class="p-2"><a class="btn btn-primary" style="color: #fff;"
+                        routerLink="/paralegals-by-practice">See More Practices</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-3">
+                  <ul class="list-unstyled">
+                    <li class="p-2"><a href="#">Family Law Paralegal</a></li>
+                    <li class="p-2"><a href="#">Government Paralegal</a></li>
+                    <li class="p-2"><a href="#">Healthcare Paralegal</a></li>
+                    <li class="p-2"><a href="#">Immigration Paralegal</a></li>
+                    <li class="p-2"><a href="#">Intellectual Property Paralegal</a></li>
+                    <li class="p-2"><a href="#">Litigation Paralegal</a></li>
+                    <li class="p-2"><a href="#">Medical Malpractice Paralegal</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-3">
+                  <ul class="list-unstyled">
+                    <li class="p-2"><a href="#">Personal Injury Paralegal</a></li>
+                    <li class="p-2"><a href="#">Probate Paralegal</a></li>
+                    <li class="p-2"><a href="#">Real Estate Paralegal</a></li>
+                    <li class="p-2"><a href="#">Securities Paralegal</a></li>
+                    <li class="p-2"><a href="#">Social Security Disability Paralegal</a></li>
+                    <li class="p-2"><a href="#">Tax Law Paralegal</a></li>
+                    <li class="p-2"><a href="#">Trademark & Copyright Paralegal</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-3">
+                  <ul class="list-unstyled">
+                    <li class="p-2"><a href="#">Transactional Law Paralegal</a></li>
+                    <li class="p-2"><a href="#">Workers' Compensation Paralegal</a></li>
+                    <li class="p-2"><a href="#">Corporate Compliance Paralegal</a></li>
+                    <li class="p-2"><a href="#">Insurance Law Paralegal</a></li>
+                    <li class="p-2"><a href="#">Entertainment Law Paralegal</a></li>
+                    <li class="p-2"><a href="#">Civil Rights Paralegal</a></li>
+                    <li class="p-2"><a href="#">International Law Paralegal</a></li>
+                    <!-- <li class="p-2"> <a class="btn btn-primary" style="color: #fff;" routerLink="/paralegals-by-practice">See More Practices</a></li> -->
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
-        </li>
-        
-      </ul>
-     
-    </div>
+        </div>
+      </li>
 
-    <!-- Buttons (Right-aligned) -->
-     <div class="d-flex">
+    </ul>
 
-        <ng-container *ngIf="isLoggedIn; else loggedOutButtons">
-          <!-- Logged-in icons -->
-          <ng-template #loggedInIcons>
-            <i class="ft-search p-3"></i>
-            <i class="ft-message-circle p-3"></i>
-            <i class="ft-bell p-3"></i>
-            <div class="dropdown" ngbDropdown style="margin-top: -0.3rem;" placement="bottom-left">
-              <button class="btn dropdown-toggle p-3 logged-in-user-btn" ngbDropdownToggle>
-                  <i class="ft-user logged-in-user"></i> 
-                  <span class="p-1 logged-in-user">{{ loggedInUserName }}</span>
-                  <span class="caret"></span> <!-- Caret Indicator -->
-              </button>
-              <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
-                  <li><a class="dropdown-item dropdown-animated" href="#">Profile</a></li>
-                  <li><hr class="dropdown-divider"></li> <!-- Divider -->
-                  <li><a class="dropdown-item dropdown-animated" (click)="logout()">Logout</a></li>
-              </ul>
+  </div>
+
+  <!-- Buttons (Right-aligned) -->
+  <div class="collapse navbar-collapse menu-list2" id="navbarText">
+    <div class="d-flex">
+  
+      <ng-container *ngIf="isLoggedIn; else loggedOutButtons">
+        <!-- Logged-in icons -->
+        <ng-template #loggedInIcons>
+          <i class="ft-search p-3"></i>
+          <i class="ft-message-circle p-3"></i>
+          <i class="ft-bell p-3"></i>
+          <div class="dropdown" ngbDropdown style="margin-top: -0.3rem;" placement="bottom-left">
+            <button class="btn dropdown-toggle p-3 logged-in-user-btn" ngbDropdownToggle>
+              <i class="ft-user logged-in-user"></i>
+              <span class="p-1 logged-in-user">{{ loggedInUserName }}</span>
+              <span class="caret"></span> <!-- Caret Indicator -->
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+              <li><a class="dropdown-item dropdown-animated" href="#">Profile</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li> <!-- Divider -->
+              <li><a class="dropdown-item dropdown-animated" (click)="logout()">Logout</a></li>
+            </ul>
           </div>
-          
-          </ng-template>
-          <ng-container *ngTemplateOutlet="loggedInIcons"></ng-container>
-        </ng-container>
-      
-        <ng-template #loggedOutButtons>
-          <button class="btn btn-outline-secondary m-3" [routerLink]="'/pages/claim-paralegal'">Grow your practice</button>
-          <button class="btn btn-primary m-3" [routerLink]="'/pages/register'">Sign Up</button>
-          <button class="btn btn-primary m-3" (click)="openLoginModal()">Sign In</button>
+  
         </ng-template>
-      </div>
-    
+        <ng-container *ngTemplateOutlet="loggedInIcons"></ng-container>
+      </ng-container>
+  
+      <ng-template #loggedOutButtons>
+        <button class="btn btn-outline-secondary m-lg-3 m-1" [routerLink]="'/pages/claim-paralegal'">Grow your
+          practice</button>
+        <button class="btn btn-primary m-lg-3 m-1" [routerLink]="'/pages/register'">Sign Up</button>
+        <button class="btn btn-primary m-lg-3 m-1" (click)="openLoginModal()">Sign In</button>
+      </ng-template>
+    </div>
+  </div>
+
 
   <!-- </div> -->
 </nav>
 
 
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar w/ text</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="ft-menu font-medium-3"></i>
+
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Navbar text with an inline element
+    </span>
+  </div>
+</nav> -->
