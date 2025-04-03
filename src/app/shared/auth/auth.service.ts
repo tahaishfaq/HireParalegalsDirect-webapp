@@ -55,6 +55,34 @@ this.loadUsers();
       console.error('Google Sign-in error:', error);
     }
   }
+  storeGoogleAuthToken(token: string): void {
+    localStorage.setItem('token', token);
+    localStorage.setItem('isLoggedIn', 'true');
+  
+    // Decode JWT (optional, if you want user details)
+    const payload = this.decodeToken(token);
+    const authData: AuthState = {
+      userId: payload?.id || null,
+      access_token: token,
+      name: payload?.name || null,
+      role: payload?.role || 'user'
+    };
+  
+    localStorage.setItem('auth', JSON.stringify(authData));
+    this.authState.next(authData);
+    this.isLoggedInSubject.next(true);
+  
+    window.dispatchEvent(new Event('userLoggedIn')); // Notify UI updates
+  }
+  
+  private decodeToken(token: string): any {
+    try {
+      return JSON.parse(atob(token.split('.')[1])); // Decode JWT payload
+    } catch (e) {
+      console.error('Invalid Token', e);
+      return null;
+    }
+  }
   signUp(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/users/signup`, userData);
   }
@@ -106,6 +134,9 @@ this.loadUsers();
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     localStorage.removeItem('role');
+    // localStorage.removeItem('savedEmail');
+    // localStorage.removeItem('savedPassword');
+    localStorage.removeItem('selectedParalegal');
     localStorage.setItem('isLoggedIn', 'false');
 
     this.authState.next(initialState);

@@ -20,20 +20,13 @@ export class LawyerListingComponent implements OnInit {
 
   ngOnInit(): void {
     const state = history.state;
+
     if (state) {
-      this.searchResults = state['searchResults'] || [];
+      this.paralegals = state['searchResults'] || [];
       this.practice = state['practice'] || '';
       this.location = state['location'] || '';
     }
-  
-    if (state.searchResults) {
-      this.paralegals = state.searchResults;
-      console.log("Received paralegals from homepage search:", this.paralegals);
-    } else {
-      this.paralegals = [];
-      console.log("No search results received, list is empty.");
-    }
-    
+
     this.isLoading = false;
   }
   filterParalegals(practice: string, location: string) {

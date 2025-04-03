@@ -6,6 +6,7 @@ import { environment } from 'environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { finalize } from 'rxjs/operators';
 import { ClaimProfileService } from '../claimProfile.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-claim-profile-search',
@@ -23,7 +24,8 @@ export class ClaimProfileSearchComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private toastr: ToastrService,
-    private claimProfileService: ClaimProfileService
+    private claimProfileService: ClaimProfileService,
+    private spinner: NgxSpinnerService
   ) {
     this.searchForm = this.fb.group({
       name: ['', Validators.required],
@@ -38,21 +40,26 @@ export class ClaimProfileSearchComponent implements OnInit {
   onSearch() {
     this.submitted = true;
     this.apiErrorMessage = '';
-
-
+  
     if (this.searchForm.invalid) {
-
       return;
     }
-
+  
+    // Start showing the spinner
+    this.spinner.show();
+  
     const { name, city } = this.searchForm.value;
     const apiUrl = `${environment.apiUrl}/lawyers/search?name=${encodeURIComponent(name)}&city=${encodeURIComponent(city)}`;
+  
     this.http.get<any>(apiUrl).subscribe(
       (response) => {
+        // Stop spinner on success
+        this.spinner.hide();
+  
         if (response?.lawyers && Array.isArray(response.lawyers) && response.lawyers.length > 0) {
           const lawyerName = response.lawyers[0]?.user?.name || 'Unknown Lawyer';
           this.toastr.success(`Lawyer Found: ${lawyerName}`, 'Search Result');
-
+  
           this.claimProfileService.setSearchResults(response.lawyers);
           this.router.navigate(['/pages/claim-profile-listing']);
         } else {
@@ -61,13 +68,15 @@ export class ClaimProfileSearchComponent implements OnInit {
         }
       },
       (error) => {
+        // Stop spinner on error
+        this.spinner.hide();
+  
         console.error('Search Error:', error);
         this.apiErrorMessage = error?.error?.message || 'Error while searching. Please try again.';
         this.toastr.error(this.apiErrorMessage, 'Error');
       }
     );
-    
-}
+  }
 
 
   onClaimProfile() {

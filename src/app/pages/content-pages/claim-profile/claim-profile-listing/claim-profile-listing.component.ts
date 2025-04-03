@@ -18,22 +18,41 @@ export class ClaimProfileListingComponent implements OnInit {
   searchResults: any[] = [];
   constructor(private router: Router, private searchService: SearchService, private http: HttpClient, private route: ActivatedRoute,  private claimProfileService: ClaimProfileService) { }
   ngOnInit(): void {
+    // Try to get data from the service first
     this.searchResults = this.claimProfileService.getSearchResults() || [];
-  if (this.searchResults.length > 0) {
-    this.paralegals = this.searchResults;
-    console.log("Received paralegals from search:", this.paralegals);
-  } else {
-    console.log("No search results received, list is empty.");
-  }
+
+    if (this.searchResults.length > 0) {
+      this.paralegals = this.searchResults;
+      console.log("Received paralegals from search:", this.paralegals);
+
+      // Store in localStorage
+      localStorage.setItem('paralegals', JSON.stringify(this.paralegals));
+    } else {
+      // If no data in service, check localStorage
+      const storedParalegals = localStorage.getItem('paralegals');
+      if (storedParalegals) {
+        this.paralegals = JSON.parse(storedParalegals);
+        console.log("Loaded paralegals from localStorage:", this.paralegals);
+      } else {
+        console.log("No search results received, list is empty.");
+      }
+    }
+
     this.isLoading = false;
   }
-  // filterParalegals(practice: string, location: string) {
-  //   this.filteredParalegals = this.paralegals.filter(paralegal =>
-  //     (practice ? paralegal.practice.toLowerCase().includes(practice.toLowerCase()) : true) &&
-  //     (location ? paralegal.location.toLowerCase().includes(location.toLowerCase()) : true)
-  //   );
-  // }
+
   viewParalegalProfile(paralegal: any) {
+    this.claimProfileService.setSelectedParalegal(paralegal);
     this.router.navigate(['/paralegals-profile'], { state: { paralegal } });
   }
+
+  claimProfile(paralegal: any) {
+    this.claimProfileService.setSelectedParalegal(paralegal); // Store selected paralegal data
+    this.router.navigate(['/pages/claim-email'], { queryParams: { id: paralegal._id } });
+  }
+
+  ngOnDestroy(): void {
+    localStorage.removeItem('paralegals');
+  }
+  
 }

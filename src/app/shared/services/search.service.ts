@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -35,6 +36,11 @@ export class SearchService {
         })
       )
     );
+  }
+
+  searchParalegalss(practice: string, location: string): Observable<any[]> {
+    const endpoint = `${environment.apiUrl}/lawyers/search?name=${practice}&city=${location}`;
+    return this.http.get<any[]>(endpoint);
   }
   
   

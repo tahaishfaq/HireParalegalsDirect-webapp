@@ -49,17 +49,17 @@
       <!-- Right Column -->
       <div class="col-lg-6 position-relative para">
         <img src="/assets/hpd-home.png" class="hero-image" alt="Kevin Harrington">
-        <div class="info-card" style="padding: 20px;box-shadow: 6px 8px 9px 0px #75757540 inset;">
+        <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+          <p style="color: white">Searching...</p>
+        </ngx-spinner>
+        <div class="info-card" style="padding: 20px; box-shadow: 6px 8px 9px 0px #75757540 inset;">
           <form (ngSubmit)="searchParalegals()" class="search-box p-4">
-            <input type="text" [(ngModel)]="practice" name="practice" placeholder="Enter practice area">
-            <input type="text" [(ngModel)]="location" name="location" placeholder="Enter location">
+            <input type="text" [(ngModel)]="practice" name="practice" placeholder="Enter practice area" required>
+            <input type="text" [(ngModel)]="location" name="location" placeholder="Enter location" required>
             <div class="d-flex justify-content-end align-items-center w-100">
               <button class="search-btn justify-content-end" type="submit">Search <i class="ft-search"></i></button>
             </div>
-            
           </form>
-
-     
         </div>
       </div>
 

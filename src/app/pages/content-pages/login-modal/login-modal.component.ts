@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'app/shared/auth/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -13,15 +14,25 @@ export class LoginModalComponent implements OnInit {
   email: string = '';
   password: string = '';
   loading: boolean = false;
-
+  rememberMe: boolean = false;
+  showPassword: boolean = false;
   constructor(
     public activeModal: NgbActiveModal,
     private toastr: ToastrService,
     private authService: AuthService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const savedEmail = localStorage.getItem('savedEmail');
+    const savedPassword = localStorage.getItem('savedPassword');
+    if (savedEmail && savedPassword) {
+      this.email = savedEmail;
+      this.password = savedPassword;
+      this.rememberMe = true;
+    }
+  }
 
   onLogin(): void {
     if (!this.email || !this.password) {
@@ -49,7 +60,26 @@ export class LoginModalComponent implements OnInit {
       }
     });
   }
-
+  onRememberMe() {
+    if (this.rememberMe) {
+      localStorage.setItem('savedEmail', this.email);
+      localStorage.setItem('savedPassword', this.password);
+    } else {
+      localStorage.removeItem('savedEmail');
+      localStorage.removeItem('savedPassword');
+    }
+  }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+  navigateToForgotPassword() {
+    if (this.email) {
+      this.router.navigate(['/pages/forgotpassword'], { queryParams: { email: this.email } });
+    } else {
+      this.router.navigate(['/pages/forgotpassword']);
+    }
+    this.dismiss(); // Close the modal
+  }
   dismiss() {
     this.activeModal.dismiss(); // Closes the modal
   }

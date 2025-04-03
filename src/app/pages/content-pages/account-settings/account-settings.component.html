@@ -1,0 +1,62 @@
+<section id="regestration">
+    <div class="row auth-height m-0">
+      <div class="col-12 d-flex align-items-center">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body auth-img">
+              <div class="row m-0">
+
+                <div class="col-lg-6 col-md-12 px-4 py-3 align-self-center">
+                    <h4 class="card-title mb-2">Profile Settings</h4>
+                    <p>Customize your profile and credentials</p>
+                
+                    <!-- Username Field -->
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" [(ngModel)]="username" [disabled]="!isEditingUsername">
+                        <a href="javascript:void(0)" (click)="onEditUsername()" *ngIf="!isEditingUsername" class="text-primary">Change Username</a>
+                
+                        <!-- Show Save & Cancel buttons if editing -->
+                        <div *ngIf="isEditingUsername" class="mt-2">
+                            <button class="btn btn-success btn-sm" (click)="onSaveUsername()">Save</button>
+                            <button class="btn btn-danger btn-sm ml-2" (click)="onCancelUsername()">Cancel</button>
+                        </div>
+                    </div>
+                
+                    <!-- Password Field -->
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" *ngIf="!isEditingPassword" [(ngModel)]="password" [disabled]="!isEditingPassword">
+                        <a href="javascript:void(0)" (click)="onEditPassword()" *ngIf="!isEditingPassword" class="text-primary">Change Password</a>
+                
+                        <!-- Show additional fields when changing password -->
+                        <div *ngIf="isEditingPassword">
+                            <label class="form-label mt-2">Old Password</label>
+                            <input type="password" class="form-control" [(ngModel)]="oldPassword">
+                
+                            <label class="form-label mt-2">New Password</label>
+                            <input type="password" class="form-control" [(ngModel)]="newPassword">
+                
+                            <label class="form-label mt-2">Confirm Password</label>
+                            <input type="password" class="form-control" [(ngModel)]="confirmPassword">
+                
+                            <!-- Save & Cancel Buttons -->
+                            <div class="mt-2">
+                                <button class="btn btn-success btn-sm" (click)="onSavePassword()">Save</button>
+                                <button class="btn btn-danger btn-sm ml-2" (click)="onCancelPassword()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div
+                class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center text-center auth-img-bg py-2">
+                <img src="/assets/img/account-settings.jpg" alt="" class="img-fluid" width="350" height="450">
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

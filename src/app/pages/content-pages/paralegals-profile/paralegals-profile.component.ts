@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApexAxisChartSeries, ApexDataLabels, ApexFill, ApexGrid, ApexLegend, ApexMarkers, ApexNonAxisChartSeries, ApexPlotOptions, ApexResponsive, ApexStroke, ApexTheme, ApexTitleSubtitle, ApexTooltip, ApexXAxis, ApexYAxis, ChartComponent, NgApexchartsModule } from 'ng-apexcharts';
+import { ClaimProfileService } from '../claim-profile/claimProfile.service';
 export type ChartOptions = {
   series: ApexAxisChartSeries | ApexNonAxisChartSeries;
   colors: string[],
@@ -28,6 +29,7 @@ export type ChartOptions = {
 })
 export class ParalegalsProfileComponent implements OnInit {
   activeTab: string = 'overview'; // Default active tab
+  selectedParalegal: any = null;
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   testimonials = [
@@ -78,7 +80,7 @@ export class ParalegalsProfileComponent implements OnInit {
   setActiveTab(tab: string) {
     this.activeTab = tab;
   }
-  constructor() {
+  constructor(private claimProfileService: ClaimProfileService) {
 
     this.chartOptions = {
       series: [44, 55, 13, 43, 22],
@@ -110,7 +112,21 @@ export class ParalegalsProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Try to get data from service first
+    this.claimProfileService.selectedParalegal$.subscribe(paralegal => {
+      if (paralegal) {
+        this.selectedParalegal = paralegal;
+        localStorage.setItem('selectedParalegal', JSON.stringify(paralegal));
+      }
+    });
 
+    // If no data in service, check localStorage
+    if (!this.selectedParalegal) {
+      const storedParalegal = localStorage.getItem('selectedParalegal');
+      if (storedParalegal) {
+        this.selectedParalegal = JSON.parse(storedParalegal);
+      }
+    }
   }
   prevSlide() {
     this.currentIndex = (this.currentIndex - 1 + this.testimonials.length) % this.testimonials.length;

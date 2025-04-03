@@ -10,9 +10,18 @@ import { Router, ActivatedRoute } from "@angular/router";
 
 export class ForgotPasswordPageComponent {
     @ViewChild('f') forogtPasswordForm: NgForm;
-
+    email: string = '';
     constructor(private router: Router,
         private route: ActivatedRoute) { }
+
+        ngOnInit() {
+            // Get the email from the query parameter
+            this.route.queryParams.subscribe(params => {
+                if (params['email']) {
+                    this.email = params['email'];
+                }
+            });
+        }
 
     // On submit click, reset form fields
     onSubmit() {

@@ -17,6 +17,9 @@ import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { ClaimProfileSearchComponent } from './claim-profile/claim-profile-search/claim-profile-search.component';
 import { ContactSaleTicketComponent } from './claim-profile/contact-sale-ticket/contact-sale-ticket.component';
 import { ClaimProfileListingComponent } from './claim-profile/claim-profile-listing/claim-profile-listing.component';
+import { ClaimTermsComponent } from './claim-profile/claim-terms/claim-terms.component';
+import { ClaimEmailComponent } from './claim-profile/claim-email/claim-email.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 const routes: Routes = [
@@ -42,6 +45,13 @@ const routes: Routes = [
         component: ForgotPasswordPageComponent,
         data: {
           title: 'Forgot Password Page'
+        }
+      },   
+      {
+        path: 'account-settings',
+        component: AccountSettingsComponent,
+        data: {
+          title: 'account-settings'
         }
       },   
       
@@ -135,7 +145,21 @@ const routes: Routes = [
         data: {
           title: 'claim-profile-listing'
         }
-      }      
+      },
+      {
+        path: 'claim-terms',
+        component: ClaimTermsComponent,
+        data: {
+          title: 'claim-terms'
+        }
+      },
+      {
+        path: 'claim-email',
+        component: ClaimEmailComponent,
+        data: {
+          title: 'claim-email'
+        }
+      }         
       
     ]
   }

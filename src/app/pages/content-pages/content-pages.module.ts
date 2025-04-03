@@ -29,6 +29,9 @@ import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { ClaimProfileSearchComponent } from './claim-profile/claim-profile-search/claim-profile-search.component';
 import { ContactSaleTicketComponent } from './claim-profile/contact-sale-ticket/contact-sale-ticket.component';
 import { ClaimProfileListingComponent } from './claim-profile/claim-profile-listing/claim-profile-listing.component';
+import { ClaimTermsComponent } from './claim-profile/claim-terms/claim-terms.component';
+import { ClaimEmailComponent } from './claim-profile/claim-email/claim-email.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -70,7 +73,10 @@ export function createTranslateLoader(http: HttpClient) {
     VerifyOtpComponent,
     ClaimProfileSearchComponent,
     ContactSaleTicketComponent,
-    ClaimProfileListingComponent
+    ClaimProfileListingComponent,
+    ClaimTermsComponent,
+    ClaimEmailComponent,
+    AccountSettingsComponent
   ]
 })
 export class ContentPagesModule { }
