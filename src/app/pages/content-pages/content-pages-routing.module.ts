@@ -20,6 +20,9 @@ import { ClaimProfileListingComponent } from './claim-profile/claim-profile-list
 import { ClaimTermsComponent } from './claim-profile/claim-terms/claim-terms.component';
 import { ClaimEmailComponent } from './claim-profile/claim-email/claim-email.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { VerifyForgotPasswordComponent } from './verify-forgot-password/verify-forgot-password.component';
+import { VerifyClaimTokenComponent } from './verify-claim-token/verify-claim-token.component';
+import { SetPasswordAfterClaimParalegalComponent } from './set-password-after-claim-paralegal/set-password-after-claim-paralegal.component';
 
 
 const routes: Routes = [
@@ -45,6 +48,13 @@ const routes: Routes = [
         component: ForgotPasswordPageComponent,
         data: {
           title: 'Forgot Password Page'
+        }
+      },
+      {
+        path: 'verify-forgotPassword-otp',
+        component: VerifyForgotPasswordComponent,
+        data: {
+          title: 'verify-forgotPassword-otp'
         }
       },   
       {
@@ -159,7 +169,21 @@ const routes: Routes = [
         data: {
           title: 'claim-email'
         }
-      }         
+      },
+      {
+        path: 'verify-claim-token/:token',
+        component: VerifyClaimTokenComponent,
+        data: {
+          title: 'verify-claim-token'
+        }
+      },
+      {
+        path: 'set-new-password',
+        component: SetPasswordAfterClaimParalegalComponent,
+        data: {
+          title: 'set-new-password'
+        }
+      }            
       
     ]
   }

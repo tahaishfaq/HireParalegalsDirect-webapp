@@ -13,13 +13,15 @@ export interface AuthState {
   access_token?: string | null;
   name?: string | null;
   role?: string | null;
+  username?: string | null;
 }
 
 export const initialState: AuthState = {
   userId: null,
   access_token: null,
   name: null,
-  role: null
+  role: null,
+  username: null
 };
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -153,6 +155,7 @@ this.loadUsers();
   }
   private getLocalState(): AuthState {
     const localState = localStorage.getItem('auth');
+    const username = localStorage.getItem('username');
     return localState ? (JSON.parse(localState) as AuthState) : initialState;
   }
   resendOtp(email: string): Observable<any> {

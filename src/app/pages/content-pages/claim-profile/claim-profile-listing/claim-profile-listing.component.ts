@@ -48,7 +48,7 @@ export class ClaimProfileListingComponent implements OnInit {
 
   claimProfile(paralegal: any) {
     this.claimProfileService.setSelectedParalegal(paralegal); // Store selected paralegal data
-    this.router.navigate(['/pages/claim-email'], { queryParams: { id: paralegal._id } });
+    this.router.navigate(['/pages/claim-email'], { queryParams: { id: paralegal._id, email: paralegal.user.email } });
   }
 
   ngOnDestroy(): void {

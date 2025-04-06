@@ -23,6 +23,7 @@ import { Country, State, City }  from 'country-state-city';
 export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   isLoggedIn: boolean = false;
   loggedInUserName: string | null = null;
+  loggedInUser: string;
   currentLang = "en";
   selectedLanguageText = "English";
   selectedLanguageFlag = "./assets/img/flags/us.png";
@@ -94,6 +95,9 @@ this.loadStates();
     this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const user = this.auth.getLoggedInUser();
     this.loggedInUserName = user ? user.name : null;
+
+    this.loggedInUser = localStorage.getItem('username');
+    
 
     // Listen for login event
     window.addEventListener('userLoggedIn', () => {

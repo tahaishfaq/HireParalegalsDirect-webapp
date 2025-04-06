@@ -12,16 +12,34 @@
                 
                     <!-- Username Field -->
                     <div class="mb-3">
-                        <label class="form-label">Username</label>
-                        <input type="text" class="form-control" [(ngModel)]="username" [disabled]="!isEditingUsername">
-                        <a href="javascript:void(0)" (click)="onEditUsername()" *ngIf="!isEditingUsername" class="text-primary">Change Username</a>
-                
-                        <!-- Show Save & Cancel buttons if editing -->
-                        <div *ngIf="isEditingUsername" class="mt-2">
-                            <button class="btn btn-success btn-sm" (click)="onSaveUsername()">Save</button>
-                            <button class="btn btn-danger btn-sm ml-2" (click)="onCancelUsername()">Cancel</button>
-                        </div>
+                      <label class="form-label">Username</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="username"
+                        [disabled]="!isEditingUsername || loadingUsername"
+                      />
+                    
+                      <!-- Change Link -->
+                      <a
+                        href="javascript:void(0)"
+                        (click)="onEditUsername()"
+                        *ngIf="!isEditingUsername"
+                        class="text-primary"
+                      >
+                        Change Username
+                      </a>
+                    
+                      <!-- Save & Cancel Buttons -->
+                      <div *ngIf="isEditingUsername" class="mt-2">
+                        <button class="btn btn-success btn-sm" (click)="onSaveUsername()" [disabled]="loadingUsername">
+                          <span *ngIf="!loadingUsername">Save</span>
+                          <span *ngIf="loadingUsername" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        </button>
+                        <button class="btn btn-danger btn-sm ml-2" (click)="onCancelUsername()" [disabled]="loadingUsername">Cancel</button>
+                      </div>
                     </div>
+                    
                 
                     <!-- Password Field -->
                     <div class="mb-3">
@@ -31,20 +49,52 @@
                 
                         <!-- Show additional fields when changing password -->
                         <div *ngIf="isEditingPassword">
-                            <label class="form-label mt-2">Old Password</label>
-                            <input type="password" class="form-control" [(ngModel)]="oldPassword">
+                          <label class="form-label mt-2">Old Password</label>
+                          <div class="input-group">
+                            <input [type]="showOldPassword ? 'text' : 'password'" class="form-control" [disabled]="loadingPassword" [(ngModel)]="oldPassword" placeholder="Enter your old password">
+                            <div class="input-group-append">
+                              <button type="button" class="btn btn-outline-secondary" (click)="toggleOldPasswordVisibility()">
+                                <i class="fa" [ngClass]="showOldPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+                              </button>
+                            </div>
+                          </div>
+                       
                 
-                            <label class="form-label mt-2">New Password</label>
-                            <input type="password" class="form-control" [(ngModel)]="newPassword">
+                          <label class="form-label mt-2">New Password</label>
+                          <div class="input-group">
+                            <input [type]="showNewPassword ? 'text' : 'password'" class="form-control" [disabled]="loadingPassword" [(ngModel)]="newPassword" placeholder="Enter your new password">
+                            <div class="input-group-append">
+                              <button type="button" class="btn btn-outline-secondary" (click)="toggleNewPasswordVisibility()">
+                                <i class="fa" [ngClass]="showNewPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+                              </button>
+                            </div>
+                          </div>
+                          
                 
-                            <label class="form-label mt-2">Confirm Password</label>
-                            <input type="password" class="form-control" [(ngModel)]="confirmPassword">
+                          <label class="form-label mt-2">Confirm Password</label>
+                          <div class="input-group">
+                            <input [type]="showConfirmPassword ? 'text' : 'password'" class="form-control" [disabled]="loadingPassword" [(ngModel)]="confirmPassword" placeholder="Confirm your new password">
+                            <div class="input-group-append">
+                              <button type="button" class="btn btn-outline-secondary" (click)="toggleConfirmPasswordVisibility()">
+                                <i class="fa" [ngClass]="showConfirmPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+                              </button>
+                            </div>
+                          </div>
+                            
                 
                             <!-- Save & Cancel Buttons -->
-                            <div class="mt-2">
-                                <button class="btn btn-success btn-sm" (click)="onSavePassword()">Save</button>
-                                <button class="btn btn-danger btn-sm ml-2" (click)="onCancelPassword()">Cancel</button>
-                            </div>
+                          <!-- Save & Cancel Buttons -->
+<div class="mt-2">
+  <button class="btn btn-success btn-sm" (click)="onSavePassword()" [disabled]="loadingPassword">
+    <span *ngIf="!loadingPassword">Save</span>
+    <span *ngIf="loadingPassword" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  </button>
+
+  <button class="btn btn-danger btn-sm ml-2" (click)="onCancelPassword()" [disabled]="loadingPassword">
+    Cancel
+  </button>
+</div>
+
                         </div>
                     </div>
                 </div>

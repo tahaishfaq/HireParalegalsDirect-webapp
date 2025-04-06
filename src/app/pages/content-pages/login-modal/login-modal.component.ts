@@ -53,6 +53,7 @@ export class LoginModalComponent implements OnInit {
       },
       error: (err) => {
         this.toastr.error('Invalid email or password', 'Error');
+        this.spinner.hide();
         console.error(err);
       },
       complete: () => {
@@ -83,4 +84,9 @@ export class LoginModalComponent implements OnInit {
   dismiss() {
     this.activeModal.dismiss(); // Closes the modal
   }
+  signInWithGoogle(): void {
+    const googleAuthUrl = 'https://hire-paralegal.vercel.app/auth/google';
+    window.open(googleAuthUrl, '_blank');
+  }
+  
 }

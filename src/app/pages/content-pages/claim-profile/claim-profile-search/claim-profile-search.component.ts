@@ -58,7 +58,7 @@ export class ClaimProfileSearchComponent implements OnInit {
   
         if (response?.lawyers && Array.isArray(response.lawyers) && response.lawyers.length > 0) {
           const lawyerName = response.lawyers[0]?.user?.name || 'Unknown Lawyer';
-          this.toastr.success(`Lawyer Found: ${lawyerName}`, 'Search Result');
+          this.toastr.success(`Paralegal Found: ${lawyerName}`, 'Search Result');
   
           this.claimProfileService.setSearchResults(response.lawyers);
           this.router.navigate(['/pages/claim-profile-listing']);

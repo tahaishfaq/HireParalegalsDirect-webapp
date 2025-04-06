@@ -32,6 +32,9 @@ import { ClaimProfileListingComponent } from './claim-profile/claim-profile-list
 import { ClaimTermsComponent } from './claim-profile/claim-terms/claim-terms.component';
 import { ClaimEmailComponent } from './claim-profile/claim-email/claim-email.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { VerifyForgotPasswordComponent } from './verify-forgot-password/verify-forgot-password.component';
+import { VerifyClaimTokenComponent } from './verify-claim-token/verify-claim-token.component';
+import { SetPasswordAfterClaimParalegalComponent } from './set-password-after-claim-paralegal/set-password-after-claim-paralegal.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -76,7 +79,10 @@ export function createTranslateLoader(http: HttpClient) {
     ClaimProfileListingComponent,
     ClaimTermsComponent,
     ClaimEmailComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    VerifyForgotPasswordComponent,
+    VerifyClaimTokenComponent,
+    SetPasswordAfterClaimParalegalComponent
   ]
 })
 export class ContentPagesModule { }
